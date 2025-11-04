@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{315228E5-5F08-4271-87C6-B9552844CDC0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>EscolaVirtual2322</RootNamespace>
+    <AssemblyName>EscolaVirtual2322</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.10, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.10\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Pipelines, Version=9.0.0.10, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.9.0.10\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=9.0.0.10, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.9.0.10\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=9.0.0.10, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.9.0.10\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminFormsAdicionais\EditarAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\EditarAluno.Designer.cs">
+      <DependentUpon>EditarAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\EditarAno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\EditarAno.Designer.cs">
+      <DependentUpon>EditarAno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\EditarDisc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\EditarDisc.Designer.cs">
+      <DependentUpon>EditarDisc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\EditarProf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\EditarProf.Designer.cs">
+      <DependentUpon>EditarProf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\EditarTurma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\EditarTurma.Designer.cs">
+      <DependentUpon>EditarTurma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\PedidosProf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\PedidosProf.Designer.cs">
+      <DependentUpon>PedidosProf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AlunosFormsAdicionais\MensagemAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlunosFormsAdicionais\MensagemAluno.Designer.cs">
+      <DependentUpon>MensagemAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Admin.cs" />
+    <Compile Include="AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\AddAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\AddAluno.Designer.cs">
+      <DependentUpon>AddAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\AddAno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\AddAno.Designer.cs">
+      <DependentUpon>AddAno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\AddDisciplina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\AddDisciplina.Designer.cs">
+      <DependentUpon>AddDisciplina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\AddProf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\AddProf.Designer.cs">
+      <DependentUpon>AddProf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\AddTurma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\AddTurma.Designer.cs">
+      <DependentUpon>AddTurma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\DisciplinaProf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\DisciplinaProf.Designer.cs">
+      <DependentUpon>DisciplinaProf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AlunosFormsAdicionais\AlterarDadosAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlunosFormsAdicionais\AlterarDadosAluno.Designer.cs">
+      <DependentUpon>AlterarDadosAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Notas.cs" />
+    <Compile Include="ProfFormsAdicionais\AlterarDadosProf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfFormsAdicionais\AlterarDadosProf.Designer.cs">
+      <DependentUpon>AlterarDadosProf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AlunoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlunoForm.Designer.cs">
+      <DependentUpon>AlunoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Alunos.cs" />
+    <Compile Include="Classes\Ano.cs" />
+    <Compile Include="Classes\Disciplina.cs" />
+    <Compile Include="Classes\Listas.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\PedidosDados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminFormsAdicionais\PedidosDados.Designer.cs">
+      <DependentUpon>PedidosDados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Professores.cs" />
+    <Compile Include="ProfForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfForm.Designer.cs">
+      <DependentUpon>ProfForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Program.cs" />
+    <Compile Include="ProfFormsAdicionais\MensagemProf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfFormsAdicionais\MensagemProf.Designer.cs">
+      <DependentUpon>MensagemProf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AlunosFormsAdicionais\SaldoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlunosFormsAdicionais\SaldoForm.Designer.cs">
+      <DependentUpon>SaldoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Turmas.cs" />
+    <Compile Include="Classes\Utilizadores.cs" />
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminFormsAdicionais\AddAluno.resx">
+      <DependentUpon>AddAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminFormsAdicionais\AddAno.resx">
+      <DependentUpon>AddAno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminFormsAdicionais\AddDisciplina.resx">
+      <DependentUpon>AddDisciplina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminFormsAdicionais\AddProf.resx">
+      <DependentUpon>AddProf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminFormsAdicionais\AddTurma.resx">
+      <DependentUpon>AddTurma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminFormsAdicionais\DisciplinaProf.resx">
+      <DependentUpon>DisciplinaProf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminFormsAdicionais\EditarAluno.resx">
+      <DependentUpon>EditarAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminFormsAdicionais\EditarAno.resx">
+      <DependentUpon>EditarAno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminFormsAdicionais\EditarDisc.resx">
+      <DependentUpon>EditarDisc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminFormsAdicionais\EditarProf.resx">
+      <DependentUpon>EditarProf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminFormsAdicionais\EditarTurma.resx">
+      <DependentUpon>EditarTurma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminFormsAdicionais\PedidosProf.resx">
+      <DependentUpon>PedidosProf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlunosFormsAdicionais\AlterarDadosAluno.resx">
+      <DependentUpon>AlterarDadosAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlunosFormsAdicionais\MensagemAluno.resx">
+      <DependentUpon>MensagemAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfFormsAdicionais\AlterarDadosProf.resx">
+      <DependentUpon>AlterarDadosProf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlunoForm.resx">
+      <DependentUpon>AlunoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminFormsAdicionais\PedidosDados.resx">
+      <DependentUpon>PedidosDados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfForm.resx">
+      <DependentUpon>ProfForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfFormsAdicionais\MensagemProf.resx">
+      <DependentUpon>MensagemProf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="AlunosFormsAdicionais\SaldoForm.resx">
+      <DependentUpon>SaldoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man-user-circle-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\update.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
