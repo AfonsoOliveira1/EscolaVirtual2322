@@ -13,12 +13,19 @@ namespace EscolaVirtual2322
 {
     public partial class AlterarDadosAluno : Form
     {
-        public string nif;
-        public AlterarDadosAluno(string NIF)
+        public string num;
+        public AlterarDadosAluno(string numAluno)
         {
             InitializeComponent();
-            nif = NIF;
-            txtNIF.Text = $"{nif}";
+            num = numAluno;
+            var aluno = Listas.anos
+                .SelectMany(t => t.turmas)
+                .SelectMany(a => a.listAlunos)
+                .FirstOrDefault(n => n.numAluno == num);
+            txtNIF.Text = $"{aluno.nif}";
+            txtLogin.Text = aluno.log;
+            txtNome.Text = aluno.nome;
+            txtPassword.Text = aluno.pass;
         }
 
         private void btnPedirDados_Click(object sender, EventArgs e)
@@ -36,12 +43,18 @@ namespace EscolaVirtual2322
                     .SelectMany(p => p.profs)
                     .FirstOrDefault(l => l.log == txtLogin.Text.Trim());
 
-                if (check == null && checkP == null)
+                var aluno = Listas.anos
+                    .SelectMany(t => t.turmas)
+                    .SelectMany(a => a.listAlunos)
+                    .FirstOrDefault(n => n.numAluno == num);
+
+                if ((check == null && checkP == null) || aluno.log == txtLogin.Text.Trim())
                 {
                     string nome = txtNome.Text.Trim();
                     string login = txtLogin.Text.Trim();
                     string password = txtPassword.Text.Trim();
-                    Listas.dadosA.Add(new Alunos(nif, nome, login, password));
+                    int nif = Convert.ToInt32(txtNIF.Text.Trim());
+                    Listas.dadosA.Add(new Alunos(num, nif, nome, login, password));
                     MessageBox.Show("Pedido de Alteração foi Enviada!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }

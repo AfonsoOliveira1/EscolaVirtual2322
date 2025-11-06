@@ -20,6 +20,9 @@ namespace EscolaVirtual2322.AdminFormsAdicionais
             id = ID;
             nome = name;
             sigla = SIGLA;
+            var disc = Listas.anos[id].turmas.FirstOrDefault(n => n.nome == nome).listDisciplinas.FirstOrDefault(m => m.sigla == SIGLA);
+            txtNome.Text = disc.nome;
+            txtSigla.Text = disc.sigla;
         }
 
         private void btnInserir_Click(object sender, EventArgs e)

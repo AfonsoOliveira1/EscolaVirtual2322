@@ -25,7 +25,7 @@ namespace EscolaVirtual2322.AdminFormsAdicionais
                 .SelectMany(a => a.turmas)
                 .SelectMany(t => t.listDisciplinas)
                 .SelectMany(p => p.profs)
-                .GroupBy(p => p.nif)
+                .GroupBy(p => p.id)
                 .Select(g => g.First()) //tira os repetidos 20 minutos nisto.
                 .ToList();
 
@@ -40,7 +40,7 @@ namespace EscolaVirtual2322.AdminFormsAdicionais
 
             for (int i = 0; i < profs.Count; i++)
             {
-                if (profs[i].nif == profSelected.nif)
+                if (profs[i].id == profSelected.id)
                 {
                     return true;
                 }

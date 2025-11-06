@@ -13,8 +13,8 @@ namespace EscolaVirtual2322.ProfFormsAdicionais
 {
     public partial class MensagemProf : Form
     {
-        int nif;
-        public MensagemProf(int NIF)
+        int id;
+        public MensagemProf(int ID)
         {
             InitializeComponent();
             for (int i = 0; i < Listas.anos.Count; i++)
@@ -22,7 +22,7 @@ namespace EscolaVirtual2322.ProfFormsAdicionais
                 cbbAnos.Items.Add(Listas.anos[i].nome);
             }
             cbbAnos.SelectedIndex = 0;
-            nif = NIF;
+            id = ID;
         }
 
         private void btnEnviarMensagem_Click(object sender, EventArgs e)
@@ -38,7 +38,7 @@ namespace EscolaVirtual2322.ProfFormsAdicionais
                     .SelectMany(t => t.turmas)
                     .SelectMany(d => d.listDisciplinas)
                     .SelectMany(p => p.profs)
-                    .FirstOrDefault(n => n.nif == nif);
+                    .FirstOrDefault(n => n.id == id);
 
                 Listas.anos[cbbAnos.SelectedIndex].turmas[cbbTurma.SelectedIndex].listAlunos[cbbAlunosEnvio.SelectedIndex].mensagens.Add($"{prof.nome}: {mensagem}");
                 txtMensagem.Clear();

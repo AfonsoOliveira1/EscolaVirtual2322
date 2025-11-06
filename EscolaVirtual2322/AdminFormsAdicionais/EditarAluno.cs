@@ -21,6 +21,10 @@ namespace EscolaVirtual2322.AdminFormsAdicionais
             nome = name;
             num = NUM;
             txtNum.Text = NUM;
+            var aluno = Listas.anos[id].turmas.FirstOrDefault(n => n.nome == nome).listAlunos.FirstOrDefault(m => m.numAluno == NUM);
+            txtLogin.Text = aluno.log;
+            txtNIF.Text = Convert.ToString(aluno.nif);
+            txtPass.Text = aluno.pass;
         }
 
         private void txtNIF_KeyPress(object sender, KeyPressEventArgs e)
@@ -35,19 +39,20 @@ namespace EscolaVirtual2322.AdminFormsAdicionais
         {
             if (txtNome.Text.Trim() != "" && txtLogin.Text.Trim() != "" && txtPass.Text.Trim() != "")
             {
-                var turma = Listas.anos[id].turmas.FirstOrDefault(n => n.nome == nome);
+                var checkAluno = Listas.anos.SelectMany(a => a.turmas).SelectMany(t => t.listAlunos).FirstOrDefault(l => l.log == txtLogin.Text);
                 var prof = Listas.anos.SelectMany(a => a.turmas).SelectMany(d => d.listDisciplinas).SelectMany(p => p.profs).FirstOrDefault(l => l.log == txtLogin.Text);
-                if (turma.listAlunos.Any(l => l.log == txtLogin.Text) || prof != null)
+                var aluno = Listas.anos[id].turmas.SelectMany(a => a.listAlunos).FirstOrDefault(l => l.numAluno == num);
+                if ((checkAluno == null && prof == null) || aluno.log == txtLogin.Text)
                 {
-                    MessageBox.Show("Digite um nome ou login não existente ao Aluno!", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    aluno.nome = txtNome.Text;
+                    aluno.log = txtLogin.Text;
+                    aluno.pass = txtPass.Text;
+                    aluno.nif = Convert.ToInt32(txtNIF.Text);
+                    this.Close();
                 }
                 else
                 {
-                    var aluno = turma.listAlunos.FirstOrDefault(i => i.numAluno == num);
-                    aluno.nome = $"I{txtNome.Text}";
-                    aluno.log = txtLogin.Text;
-                    aluno.pass = txtPass.Text;
-                    this.Close();
+                    MessageBox.Show("Digite um nome ou login não existente ao Aluno!", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             else

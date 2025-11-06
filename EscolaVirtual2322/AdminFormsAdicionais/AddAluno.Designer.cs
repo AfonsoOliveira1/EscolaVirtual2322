@@ -51,10 +51,10 @@
             // 
             this.cbbAnos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbAnos.FormattingEnabled = true;
-            this.cbbAnos.Location = new System.Drawing.Point(283, 137);
-            this.cbbAnos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbbAnos.Location = new System.Drawing.Point(212, 111);
+            this.cbbAnos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbbAnos.Name = "cbbAnos";
-            this.cbbAnos.Size = new System.Drawing.Size(161, 24);
+            this.cbbAnos.Size = new System.Drawing.Size(122, 21);
             this.cbbAnos.TabIndex = 15;
             this.cbbAnos.SelectedIndexChanged += new System.EventHandler(this.cbbAnos_SelectedIndexChanged);
             // 
@@ -62,9 +62,10 @@
             // 
             this.lblAno.AutoSize = true;
             this.lblAno.Font = new System.Drawing.Font("Courier New", 12F);
-            this.lblAno.Location = new System.Drawing.Point(27, 140);
+            this.lblAno.Location = new System.Drawing.Point(20, 114);
+            this.lblAno.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAno.Name = "lblAno";
-            this.lblAno.Size = new System.Drawing.Size(202, 22);
+            this.lblAno.Size = new System.Drawing.Size(168, 18);
             this.lblAno.TabIndex = 14;
             this.lblAno.Text = "Selecione o Ano:";
             // 
@@ -72,10 +73,10 @@
             // 
             this.btnInserir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnInserir.Font = new System.Drawing.Font("Courier New", 10.2F);
-            this.btnInserir.Location = new System.Drawing.Point(31, 225);
-            this.btnInserir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnInserir.Location = new System.Drawing.Point(23, 183);
+            this.btnInserir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnInserir.Name = "btnInserir";
-            this.btnInserir.Size = new System.Drawing.Size(163, 28);
+            this.btnInserir.Size = new System.Drawing.Size(122, 23);
             this.btnInserir.TabIndex = 13;
             this.btnInserir.Text = "Inserir";
             this.btnInserir.UseVisualStyleBackColor = false;
@@ -85,9 +86,10 @@
             // 
             this.lblTurma.AutoSize = true;
             this.lblTurma.Font = new System.Drawing.Font("Courier New", 12F);
-            this.lblTurma.Location = new System.Drawing.Point(27, 187);
+            this.lblTurma.Location = new System.Drawing.Point(20, 152);
+            this.lblTurma.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTurma.Name = "lblTurma";
-            this.lblTurma.Size = new System.Drawing.Size(226, 22);
+            this.lblTurma.Size = new System.Drawing.Size(188, 18);
             this.lblTurma.TabIndex = 11;
             this.lblTurma.Text = "Selecione a Turma:";
             // 
@@ -95,47 +97,49 @@
             // 
             this.cbbTurma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTurma.FormattingEnabled = true;
-            this.cbbTurma.Location = new System.Drawing.Point(283, 187);
-            this.cbbTurma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbbTurma.Location = new System.Drawing.Point(212, 152);
+            this.cbbTurma.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbbTurma.Name = "cbbTurma";
-            this.cbbTurma.Size = new System.Drawing.Size(161, 24);
+            this.cbbTurma.Size = new System.Drawing.Size(122, 21);
             this.cbbTurma.TabIndex = 16;
             // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Courier New", 12F);
-            this.lblNome.Location = new System.Drawing.Point(27, 15);
+            this.lblNome.Location = new System.Drawing.Point(20, 12);
+            this.lblNome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(70, 22);
+            this.lblNome.Size = new System.Drawing.Size(58, 18);
             this.lblNome.TabIndex = 17;
             this.lblNome.Text = "Nome:";
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(32, 43);
-            this.txtNome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNome.Location = new System.Drawing.Point(24, 35);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(177, 22);
+            this.txtNome.Size = new System.Drawing.Size(134, 20);
             this.txtNome.TabIndex = 18;
             // 
             // lblnum
             // 
             this.lblnum.AutoSize = true;
             this.lblnum.Font = new System.Drawing.Font("Courier New", 12F);
-            this.lblnum.Location = new System.Drawing.Point(28, 70);
+            this.lblnum.Location = new System.Drawing.Point(21, 57);
+            this.lblnum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblnum.Name = "lblnum";
-            this.lblnum.Size = new System.Drawing.Size(130, 22);
+            this.lblnum.Size = new System.Drawing.Size(108, 18);
             this.lblnum.TabIndex = 19;
             this.lblnum.Text = "Num Aluno:";
             // 
             // txtNum
             // 
-            this.txtNum.Location = new System.Drawing.Point(32, 98);
-            this.txtNum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNum.Location = new System.Drawing.Point(24, 80);
+            this.txtNum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNum.MaxLength = 9;
             this.txtNum.Name = "txtNum";
-            this.txtNum.Size = new System.Drawing.Size(88, 22);
+            this.txtNum.Size = new System.Drawing.Size(67, 20);
             this.txtNum.TabIndex = 20;
             this.txtNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum_KeyPress);
             // 
@@ -143,36 +147,38 @@
             // 
             this.lblLogin.AutoSize = true;
             this.lblLogin.Font = new System.Drawing.Font("Courier New", 12F);
-            this.lblLogin.Location = new System.Drawing.Point(211, 15);
+            this.lblLogin.Location = new System.Drawing.Point(158, 12);
+            this.lblLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(82, 22);
+            this.lblLogin.Size = new System.Drawing.Size(68, 18);
             this.lblLogin.TabIndex = 21;
             this.lblLogin.Text = "Login:";
             // 
             // txtLogin
             // 
-            this.txtLogin.Location = new System.Drawing.Point(216, 43);
-            this.txtLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtLogin.Location = new System.Drawing.Point(162, 35);
+            this.txtLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(165, 22);
+            this.txtLogin.Size = new System.Drawing.Size(125, 20);
             this.txtLogin.TabIndex = 22;
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(388, 43);
-            this.txtPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPass.Location = new System.Drawing.Point(291, 35);
+            this.txtPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
-            this.txtPass.Size = new System.Drawing.Size(161, 22);
+            this.txtPass.Size = new System.Drawing.Size(122, 20);
             this.txtPass.TabIndex = 24;
             // 
             // lblpassword
             // 
             this.lblpassword.AutoSize = true;
             this.lblpassword.Font = new System.Drawing.Font("Courier New", 12F);
-            this.lblpassword.Location = new System.Drawing.Point(384, 15);
+            this.lblpassword.Location = new System.Drawing.Point(288, 12);
+            this.lblpassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblpassword.Name = "lblpassword";
-            this.lblpassword.Size = new System.Drawing.Size(118, 22);
+            this.lblpassword.Size = new System.Drawing.Size(98, 18);
             this.lblpassword.TabIndex = 23;
             this.lblpassword.Text = "Password:";
             // 
@@ -194,19 +200,18 @@
             this.panel1.Controls.Add(this.cbbTurma);
             this.panel1.Controls.Add(this.lblnum);
             this.panel1.Controls.Add(this.txtNome);
-            this.panel1.Location = new System.Drawing.Point(43, 31);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(32, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(581, 276);
+            this.panel1.Size = new System.Drawing.Size(436, 224);
             this.panel1.TabIndex = 25;
             // 
             // txtNIF
             // 
-            this.txtNIF.Location = new System.Drawing.Point(180, 98);
-            this.txtNIF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNIF.Location = new System.Drawing.Point(135, 80);
+            this.txtNIF.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNIF.MaxLength = 9;
             this.txtNIF.Name = "txtNIF";
-            this.txtNIF.Size = new System.Drawing.Size(63, 22);
+            this.txtNIF.Size = new System.Drawing.Size(63, 20);
             this.txtNIF.TabIndex = 26;
             this.txtNIF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNIF_KeyPress);
             // 
@@ -214,21 +219,22 @@
             // 
             this.lblnif.AutoSize = true;
             this.lblnif.Font = new System.Drawing.Font("Courier New", 12F);
-            this.lblnif.Location = new System.Drawing.Point(177, 70);
+            this.lblnif.Location = new System.Drawing.Point(133, 57);
+            this.lblnif.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblnif.Name = "lblnif";
-            this.lblnif.Size = new System.Drawing.Size(58, 22);
+            this.lblnif.Size = new System.Drawing.Size(48, 18);
             this.lblnif.TabIndex = 25;
             this.lblnif.Text = "NIF:";
             // 
             // AddAluno
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(665, 337);
+            this.ClientSize = new System.Drawing.Size(499, 274);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "AddAluno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -154,7 +154,7 @@ namespace EscolaVirtual2322
                             break;
                         }
                 }
-                selectedNode.Remove();
+                PopularTreeView();
             }
             else
             {
@@ -246,7 +246,7 @@ namespace EscolaVirtual2322
                             break;
                         }
 
-                    case 3: //Disciplina e Turma
+                    case 3: //Disciplina e Aluno
                         {
                             TreeNode turmaNode = selectedNode.Parent;
                             TreeNode anoNode = turmaNode.Parent;
@@ -296,7 +296,7 @@ namespace EscolaVirtual2322
                             break;
                         }
                 }
-                selectedNode.Remove();
+                
             }
             else
             {

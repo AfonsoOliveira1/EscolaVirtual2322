@@ -47,7 +47,7 @@ namespace EscolaVirtual2322
 
             //adiciona alguns alunos, disciplinas, professores e notas por default a turma de PSI 10º
             anos[0].turmas[0].listAlunos.Add(new Alunos("I230065",123532123, "Afonso", "afonso@inete.net", "Afonso123"));
-            anos[0].turmas[0].listAlunos.Add(new Alunos("220082", 265323456,"Miguel", "miguel@inete.net", "Miguel123"));
+            anos[0].turmas[0].listAlunos.Add(new Alunos("I220082", 265323456,"Miguel", "miguel@inete.net", "Miguel123"));
             anos[0].turmas[0].listAlunos[0].notas.Add(new Notas(15.5, "PSI"));
             anos[0].turmas[0].listAlunos[1].notas.Add(new Notas(17.4, "PSI"));
 

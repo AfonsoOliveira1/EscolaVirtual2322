@@ -38,6 +38,7 @@
             this.btnAceitarPedido = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.NIF = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,12 +48,13 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader5});
+            this.columnHeader5,
+            this.NIF});
             this.lvPedidos.HideSelection = false;
-            this.lvPedidos.Location = new System.Drawing.Point(41, 65);
-            this.lvPedidos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lvPedidos.Location = new System.Drawing.Point(31, 53);
+            this.lvPedidos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lvPedidos.Name = "lvPedidos";
-            this.lvPedidos.Size = new System.Drawing.Size(705, 244);
+            this.lvPedidos.Size = new System.Drawing.Size(630, 199);
             this.lvPedidos.TabIndex = 11;
             this.lvPedidos.UseCompatibleStateImageBehavior = false;
             this.lvPedidos.View = System.Windows.Forms.View.Details;
@@ -82,9 +84,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Courier New", 20F);
-            this.label1.Location = new System.Drawing.Point(35, 26);
+            this.label1.Location = new System.Drawing.Point(26, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(337, 37);
+            this.label1.Size = new System.Drawing.Size(269, 30);
             this.label1.TabIndex = 10;
             this.label1.Text = "Pedidos de dados";
             // 
@@ -92,10 +95,10 @@
             // 
             this.btnEliminarPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnEliminarPedido.Enabled = false;
-            this.btnEliminarPedido.Location = new System.Drawing.Point(253, 318);
-            this.btnEliminarPedido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEliminarPedido.Location = new System.Drawing.Point(190, 258);
+            this.btnEliminarPedido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEliminarPedido.Name = "btnEliminarPedido";
-            this.btnEliminarPedido.Size = new System.Drawing.Size(180, 34);
+            this.btnEliminarPedido.Size = new System.Drawing.Size(135, 28);
             this.btnEliminarPedido.TabIndex = 9;
             this.btnEliminarPedido.Text = "Eliminar pedido";
             this.btnEliminarPedido.UseVisualStyleBackColor = false;
@@ -105,10 +108,10 @@
             // 
             this.btnAceitarPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnAceitarPedido.Enabled = false;
-            this.btnAceitarPedido.Location = new System.Drawing.Point(41, 318);
-            this.btnAceitarPedido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAceitarPedido.Location = new System.Drawing.Point(31, 258);
+            this.btnAceitarPedido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAceitarPedido.Name = "btnAceitarPedido";
-            this.btnAceitarPedido.Size = new System.Drawing.Size(207, 34);
+            this.btnAceitarPedido.Size = new System.Drawing.Size(155, 28);
             this.btnAceitarPedido.TabIndex = 8;
             this.btnAceitarPedido.Text = "Aceitar pedido";
             this.btnAceitarPedido.UseVisualStyleBackColor = false;
@@ -117,10 +120,10 @@
             // btnVoltar
             // 
             this.btnVoltar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnVoltar.Location = new System.Drawing.Point(563, 318);
-            this.btnVoltar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnVoltar.Location = new System.Drawing.Point(522, 258);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(185, 34);
+            this.btnVoltar.Size = new System.Drawing.Size(139, 28);
             this.btnVoltar.TabIndex = 12;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = false;
@@ -134,22 +137,26 @@
             this.panel1.Controls.Add(this.btnAceitarPedido);
             this.panel1.Controls.Add(this.btnEliminarPedido);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(29, 32);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(12, 26);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(789, 369);
+            this.panel1.Size = new System.Drawing.Size(696, 300);
             this.panel1.TabIndex = 13;
+            // 
+            // NIF
+            // 
+            this.NIF.Text = "NIF";
+            this.NIF.Width = 100;
             // 
             // PedidosDados
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(865, 428);
+            this.ClientSize = new System.Drawing.Size(720, 348);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MinimizeBox = false;
             this.Name = "PedidosDados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -172,5 +179,6 @@
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ColumnHeader NIF;
     }
 }

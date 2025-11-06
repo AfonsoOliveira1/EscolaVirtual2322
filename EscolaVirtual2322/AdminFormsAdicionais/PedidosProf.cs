@@ -24,9 +24,10 @@ namespace EscolaVirtual2322.AdminFormsAdicionais
             {
                 ListViewItem item = new ListViewItem();
                 item.Text = Listas.dadosP[i].nome;
-                item.SubItems.Add(Convert.ToString(Listas.dadosP[i].nif));
+                item.SubItems.Add(Convert.ToString(Listas.dadosP[i].id));
                 item.SubItems.Add(Listas.dadosP[i].log);
                 item.SubItems.Add(Listas.dadosP[i].pass);
+                item.SubItems.Add(Convert.ToString(Listas.dadosP[i].nif));
                 lvPedidos.Items.Add(item);
             }
         }
@@ -59,8 +60,8 @@ namespace EscolaVirtual2322.AdminFormsAdicionais
 
             foreach (var item in selectedItems)
             {
-                var nifProf = Convert.ToInt32(item.SubItems[1].Text);
-                var profDado = Listas.dadosP.FirstOrDefault(a => a.nif == nifProf);
+                var idProf = Convert.ToInt32(item.SubItems[1].Text);
+                var profDado = Listas.dadosP.FirstOrDefault(a => a.id == idProf);
                 Listas.dadosP.Remove(profDado);
                 lvPedidos.Items.Remove(item);
             }
@@ -74,18 +75,19 @@ namespace EscolaVirtual2322.AdminFormsAdicionais
 
             foreach (var item in selectedItems)
             {
-                var nifProf = Convert.ToInt32(item.SubItems[1].Text);
-                var profDado = Listas.dadosP.FirstOrDefault(a => a.nif == nifProf);
+                var idProf = Convert.ToInt32(item.SubItems[1].Text);
+                var profDado = Listas.dadosP.FirstOrDefault(a => a.id == idProf);
 
                 var prof = Listas.anos
                     .SelectMany(a => a.turmas)
                     .SelectMany(t => t.listDisciplinas)
                     .SelectMany(p => p.profs)
-                    .FirstOrDefault(a => a.nif == nifProf);
+                    .FirstOrDefault(a => a.id == idProf);
 
                 prof.nome = profDado.nome;
                 prof.log = profDado.log;
                 prof.pass = profDado.pass;
+                prof.nif = profDado.nif;
 
                 Listas.dadosP.Remove(profDado);
                 lvPedidos.Items.Remove(item);

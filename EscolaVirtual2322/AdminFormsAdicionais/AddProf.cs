@@ -21,33 +21,21 @@ namespace EscolaVirtual2322.AdminFormsAdicionais
             }
             cbbAnos.SelectedIndex = 0;
         }
-        public bool verificaExistente()
-        {
-            var idverifica = Listas.anos
-                .SelectMany(t => t.turmas)
-                .SelectMany(d => d.listDisciplinas)
-                .SelectMany(p => p.profs)
-                .Any(n => n.id == Convert.ToInt32(txtID.Text));
-
-            if (idverifica) return true;
-            return false;
-        }
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
-            if (txtNome.Text.Trim() != "" && txtID.Text.Trim() != "" && txtLogin.Text.Trim() != "" && txtPass.Text.Trim() != "" &&
+            var profs = Listas.anos
+                .SelectMany(t => t.turmas)
+                .SelectMany(d => d.listDisciplinas)
+                .SelectMany(p => p.profs)
+                .ToList();
+
+            if (txtNome.Text.Trim() != "" && txtLogin.Text.Trim() != "" && txtPass.Text.Trim() != "" &&
                 cbbAnos.SelectedIndex != -1 && cbbTurma.SelectedIndex != -1 && cbbDisciplina.SelectedIndex != -1)
             {
-                if (verificaExistente())
-                {
-                    MessageBox.Show("Professor já Existe", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-                else
-                {
-                    Listas.anos[cbbAnos.SelectedIndex].turmas[cbbTurma.SelectedIndex].listDisciplinas[cbbDisciplina.SelectedIndex].profs.Add(
-                        new Professores(Convert.ToInt32(txtID.Text.Trim()), Convert.ToInt32(txtNIF.Text.Trim()), txtNome.Text, txtLogin.Text.Trim(), txtPass.Text.Trim()));
-                    this.Close();
-                }
+                Listas.anos[cbbAnos.SelectedIndex].turmas[cbbTurma.SelectedIndex].listDisciplinas[cbbDisciplina.SelectedIndex].profs.Add(
+                    new Professores(profs.Count + 1, Convert.ToInt32(txtNIF.Text.Trim()), txtNome.Text, txtLogin.Text.Trim(), txtPass.Text.Trim()));
+                this.Close();
             }
             else
             {

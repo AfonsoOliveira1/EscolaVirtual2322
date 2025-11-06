@@ -38,6 +38,7 @@
             this.btnEliminarPedido = new System.Windows.Forms.Button();
             this.btnAceitarPedido = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.NIF = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,8 +46,8 @@
             // 
             this.btnVoltar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnVoltar.Font = new System.Drawing.Font("Courier New", 10F);
-            this.btnVoltar.Location = new System.Drawing.Point(415, 248);
-            this.btnVoltar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVoltar.Location = new System.Drawing.Point(515, 248);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(2);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(136, 27);
             this.btnVoltar.TabIndex = 17;
@@ -60,12 +61,13 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader5});
+            this.columnHeader5,
+            this.NIF});
             this.lvPedidos.HideSelection = false;
             this.lvPedidos.Location = new System.Drawing.Point(21, 43);
-            this.lvPedidos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lvPedidos.Margin = new System.Windows.Forms.Padding(2);
             this.lvPedidos.Name = "lvPedidos";
-            this.lvPedidos.Size = new System.Drawing.Size(530, 199);
+            this.lvPedidos.Size = new System.Drawing.Size(630, 199);
             this.lvPedidos.TabIndex = 16;
             this.lvPedidos.UseCompatibleStateImageBehavior = false;
             this.lvPedidos.View = System.Windows.Forms.View.Details;
@@ -78,7 +80,7 @@
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "NIF";
+            this.columnHeader2.Text = "ID";
             this.columnHeader2.Width = 100;
             // 
             // columnHeader3
@@ -108,7 +110,7 @@
             this.btnEliminarPedido.Enabled = false;
             this.btnEliminarPedido.Font = new System.Drawing.Font("Courier New", 10F);
             this.btnEliminarPedido.Location = new System.Drawing.Point(180, 248);
-            this.btnEliminarPedido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEliminarPedido.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminarPedido.Name = "btnEliminarPedido";
             this.btnEliminarPedido.Size = new System.Drawing.Size(131, 27);
             this.btnEliminarPedido.TabIndex = 14;
@@ -122,7 +124,7 @@
             this.btnAceitarPedido.Enabled = false;
             this.btnAceitarPedido.Font = new System.Drawing.Font("Courier New", 10F);
             this.btnAceitarPedido.Location = new System.Drawing.Point(21, 248);
-            this.btnAceitarPedido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAceitarPedido.Margin = new System.Windows.Forms.Padding(2);
             this.btnAceitarPedido.Name = "btnAceitarPedido";
             this.btnAceitarPedido.Size = new System.Drawing.Size(155, 27);
             this.btnAceitarPedido.TabIndex = 13;
@@ -140,18 +142,23 @@
             this.panel1.Controls.Add(this.btnEliminarPedido);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(576, 288);
+            this.panel1.Size = new System.Drawing.Size(674, 288);
             this.panel1.TabIndex = 18;
+            // 
+            // NIF
+            // 
+            this.NIF.Text = "NIF";
+            this.NIF.Width = 100;
             // 
             // PedidosProf
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(600, 316);
+            this.ClientSize = new System.Drawing.Size(698, 316);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "PedidosProf";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -174,5 +181,6 @@
         private System.Windows.Forms.Button btnEliminarPedido;
         private System.Windows.Forms.Button btnAceitarPedido;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ColumnHeader NIF;
     }
 }

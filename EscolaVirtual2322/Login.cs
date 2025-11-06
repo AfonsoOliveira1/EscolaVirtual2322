@@ -73,7 +73,7 @@ namespace EscolaVirtual2322
             if (ProfLogin != null)
             {
                 this.Hide();
-                new ProfForm(ProfLogin.nif).Show();
+                new ProfForm(ProfLogin.id).Show();
             }
         }
 

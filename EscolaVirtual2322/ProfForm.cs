@@ -14,17 +14,17 @@ namespace EscolaVirtual2322
 {
     public partial class ProfForm : Form
     {
-        int nif;
+        int id;
         bool sair = true;
-        public ProfForm(int NIF)
+        public ProfForm(int ID)
         {
             InitializeComponent();
-            nif = NIF;
+            id = ID;
             var prof = Listas.anos
                 .SelectMany(t => t.turmas)
                 .SelectMany(d => d.listDisciplinas)
                 .SelectMany(p => p.profs)
-                .FirstOrDefault(n => n.nif == nif);
+                .FirstOrDefault(n => n.id == id);
             lblProf.Text = $"Bem vindo, {prof.nome}!";
             PopularTree();
         }
@@ -36,7 +36,7 @@ namespace EscolaVirtual2322
             var anosProf = Listas.anos
                 .Where(ano => ano.turmas
                 .Any(turma => turma.listDisciplinas
-                .Any(disc => disc.profs.Any(p => p.nif == nif))))
+                .Any(disc => disc.profs.Any(p => p.id == id))))
                 .ToList();
 
             foreach (var ano in anosProf)
@@ -46,7 +46,7 @@ namespace EscolaVirtual2322
                 
                 var turmasProf = ano.turmas
                     .Where(turma => turma.listDisciplinas
-                    .Any(disc => disc.profs.Any(p => p.nif == nif)))
+                    .Any(disc => disc.profs.Any(p => p.id == id)))
                     .ToList();
 
                 foreach (var turma in turmasProf)
@@ -58,7 +58,7 @@ namespace EscolaVirtual2322
                     };
 
                     var discProfs = turma.listDisciplinas
-                        .Where(disc => disc.profs.Any(p => p.nif == nif))
+                        .Where(disc => disc.profs.Any(p => p.id == id))
                         .ToList();
 
                     foreach (var disc in discProfs)
@@ -103,7 +103,7 @@ namespace EscolaVirtual2322
 
         private void btnDados_Click(object sender, EventArgs e)
         {
-            AlterarDadosProf form = new AlterarDadosProf(nif);
+            AlterarDadosProf form = new AlterarDadosProf(id);
             form.ShowDialog();
         }
 
@@ -116,7 +116,7 @@ namespace EscolaVirtual2322
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            MensagemProf form = new MensagemProf(nif);
+            MensagemProf form = new MensagemProf(id);
             form.ShowDialog();
         }
 

@@ -29,6 +29,7 @@ namespace EscolaVirtual2322
                 item.SubItems.Add(Convert.ToString(Listas.dadosA[i].numAluno));
                 item.SubItems.Add(Listas.dadosA[i].log);
                 item.SubItems.Add(Listas.dadosA[i].pass);
+                item.SubItems.Add(Convert.ToString(Listas.dadosA[i].nif));
                 lvPedidos.Items.Add(item);
             }
         }
@@ -72,6 +73,7 @@ namespace EscolaVirtual2322
                 aluno.nome = alunoDado.nome;
                 aluno.log = alunoDado.log;
                 aluno.pass = alunoDado.pass;
+                aluno.nif = alunoDado.nif;
 
                 Listas.dadosA.Remove(alunoDado);
                 lvPedidos.Items.Remove(item);

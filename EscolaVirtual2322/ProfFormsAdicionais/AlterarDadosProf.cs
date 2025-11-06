@@ -12,12 +12,20 @@ namespace EscolaVirtual2322
 {
     public partial class AlterarDadosProf : Form
     {
-        int nif;
-        public AlterarDadosProf(int NIF)
+        int id;
+        public AlterarDadosProf(int ID)
         {
             InitializeComponent();
-            nif = NIF;
-            txtNIF.Text = $"{nif}";
+            id = ID;
+            var prof = Listas.anos
+                .SelectMany(t => t.turmas)
+                .SelectMany(d => d.listDisciplinas)
+                .SelectMany(p => p.profs)
+                .FirstOrDefault(n => n.id == id);
+            txtNome.Text = prof.nome;
+            txtLogin.Text = prof.log;
+            txtPassword.Text = prof.pass;
+            txtNIF.Text = $"{prof.nif}";
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -30,6 +38,12 @@ namespace EscolaVirtual2322
         {
             if (txtLogin.Text.Trim() != "" && txtPassword.Text.Trim() != "" && txtNIF.Text.Trim() != "" && txtNome.Text.Trim() != "")
             {
+                var prof = Listas.anos
+                    .SelectMany(t => t.turmas)
+                    .SelectMany(d => d.listDisciplinas)
+                    .SelectMany(p => p.profs)
+                    .FirstOrDefault(n => n.id == id);
+
                 var check = Listas.anos
                     .SelectMany(t => t.turmas)
                     .SelectMany(d => d.listDisciplinas)
@@ -41,12 +55,13 @@ namespace EscolaVirtual2322
                     .SelectMany(a => a.listAlunos)
                     .FirstOrDefault(l => l.log == txtLogin.Text.Trim());
 
-                if (check == null && checkA == null)
+                if ((check == null && checkA == null) || prof.log == txtLogin.Text.Trim())
                 {
                     string nome = txtNome.Text.Trim();
                     string login = txtLogin.Text.Trim();
                     string password = txtPassword.Text.Trim();
-                    Listas.dadosP.Add(new Professores(nif, nome, login, password));
+                    int nif = Convert.ToInt32(txtNIF.Text.Trim());
+                    Listas.dadosP.Add(new Professores(id, nif, nome, login, password));
                     MessageBox.Show("Pedido de Alteração foi Enviada!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
