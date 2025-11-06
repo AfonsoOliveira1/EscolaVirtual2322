@@ -1,9 +1,11 @@
-﻿using EscolaVirtual2322.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EscolaVirtual2322.Classes;
+using EscolaVirtual2322.Dados;
 
 namespace EscolaVirtual2322
 {
@@ -47,7 +49,15 @@ namespace EscolaVirtual2322
 
             //adiciona alguns alunos, disciplinas, professores e notas por default a turma de PSI 10º
             anos[0].turmas[0].listAlunos.Add(new Alunos("I230065",123532123, "Afonso", "afonso@inete.net", "Afonso123"));
+            string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            string rootDir = Directory.GetParent(baseDir).Parent.Parent.FullName; // sobe até à pasta do projeto
+            string caminho = Path.Combine(rootDir, "Dados", "Alunos.json");
+            Directory.CreateDirectory(Path.GetDirectoryName(caminho));
+
+            DadosJSON.ImportarAlunosJSON(caminho, anos[0].turmas[0].listAlunos[0]);
             anos[0].turmas[0].listAlunos.Add(new Alunos("I220082", 265323456,"Miguel", "miguel@inete.net", "Miguel123"));
+            DadosJSON.ImportarAlunosJSON(caminho, anos[0].turmas[0].listAlunos[1]);
+
             anos[0].turmas[0].listAlunos[0].notas.Add(new Notas(15.5, "PSI"));
             anos[0].turmas[0].listAlunos[1].notas.Add(new Notas(17.4, "PSI"));
 

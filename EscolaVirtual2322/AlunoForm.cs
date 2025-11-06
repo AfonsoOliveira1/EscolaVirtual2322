@@ -91,20 +91,6 @@ namespace EscolaVirtual2322
             }
             tvNotas.Nodes.Add(anoNode);
             tvNotas.ExpandAll();
-
-            string pastaDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            string caminho = Path.Combine(pastaDocumentos, "Dados", "alunos.json");
-            if (File.Exists(caminho))
-            {
-                var dados = new
-                {
-                    Ano = ano,
-                    Turma = turma,
-                    Aluno = aluno
-                };
-                string jsonAluno = JsonSerializer.Serialize(dados, new JsonSerializerOptions { WriteIndented = true });
-                File.WriteAllText(caminho, jsonAluno);
-            }
         }
 
         private void btnDepositar_Click(object sender, EventArgs e)

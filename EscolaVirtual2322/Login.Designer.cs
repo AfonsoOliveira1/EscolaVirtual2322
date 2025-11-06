@@ -59,7 +59,7 @@
             // 
             this.txtLogin.Font = new System.Drawing.Font("Courier New", 12.2F);
             this.txtLogin.Location = new System.Drawing.Point(5, 166);
-            this.txtLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLogin.Margin = new System.Windows.Forms.Padding(2);
             this.txtLogin.MaxLength = 17;
             this.txtLogin.Multiline = true;
             this.txtLogin.Name = "txtLogin";
@@ -73,7 +73,7 @@
             this.btnLog.Enabled = false;
             this.btnLog.Font = new System.Drawing.Font("Courier New", 10.2F);
             this.btnLog.Location = new System.Drawing.Point(2, 261);
-            this.btnLog.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLog.Margin = new System.Windows.Forms.Padding(2);
             this.btnLog.Name = "btnLog";
             this.btnLog.Size = new System.Drawing.Size(200, 31);
             this.btnLog.TabIndex = 6;
@@ -85,7 +85,7 @@
             // 
             this.txtPassword.Font = new System.Drawing.Font("Courier New", 12.2F);
             this.txtPassword.Location = new System.Drawing.Point(5, 216);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.MaxLength = 17;
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
@@ -123,7 +123,7 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(36, 40);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(497, 325);
             this.panel1.TabIndex = 10;
@@ -138,7 +138,7 @@
             this.panel3.Controls.Add(this.txtLogin);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(264, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(233, 325);
             this.panel3.TabIndex = 11;
@@ -148,7 +148,7 @@
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(236, 325);
             this.panel2.TabIndex = 10;
@@ -158,7 +158,7 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::EscolaVirtual2322.Properties.Resources.man_user_circle_icon;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(236, 325);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -173,7 +173,7 @@
             this.ClientSize = new System.Drawing.Size(574, 402);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
