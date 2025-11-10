@@ -37,7 +37,7 @@ namespace EscolaVirtual2322
             }
         }
 
-        public Alunos(string NumeroDeAluno, int NIF, string name, string login, string password) : base(login, password)
+        public Alunos(string NumeroDeAluno, int NIF, string name, string login, string password) : base(login, password, Cargos.Aluno)
         {
             this.numAluno = NumeroDeAluno;
             this.nif = NIF;

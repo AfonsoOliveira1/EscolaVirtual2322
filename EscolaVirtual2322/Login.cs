@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EscolaVirtual2322.Dados;
 
 namespace EscolaVirtual2322
 {
@@ -46,34 +47,32 @@ namespace EscolaVirtual2322
         {
             string login = txtLogin.Text.Trim();
             string password = txtPassword.Text.Trim();
+            UsersJSON usersJSON = new UsersJSON();
+            Utilizadores user = usersJSON.ObterUtilizador(login, password);
 
-            var AlunoLogin = Listas.anos
-                            .SelectMany(a => a.turmas)
-                            .SelectMany(t => t.listAlunos)
-                            .FirstOrDefault(c => c.log == login && c.pass == password);
-
-            var ProfLogin = Listas.anos
-                            .SelectMany(a => a.turmas)
-                            .SelectMany(t => t.listDisciplinas)
-                            .SelectMany(d => d.profs)
-                            .FirstOrDefault(p => p.log == login && p.pass == password);
-
-            if (login == admin.log && password == admin.pass)
+            if (usersJSON.Login(login, password))
             {
-                this.Hide();
-                new AdminForm().Show();
+                if (user.cargo == Cargos.Admin)
+                {
+                    this.Hide();
+                    new AdminForm().Show();
+                }
+
+                if (user is Alunos aluno)
+                {
+                    this.Hide();
+                    new AlunoForm(aluno.numAluno).Show();
+                }
+
+                if (user is Professores prof)
+                {
+                    this.Hide();
+                    new ProfForm(prof.id).Show();
+                }
             }
-
-            if (AlunoLogin != null)
+            else
             {
-                this.Hide();
-                new AlunoForm(AlunoLogin.numAluno).Show();
-            }
-
-            if (ProfLogin != null)
-            {
-                this.Hide();
-                new ProfForm(ProfLogin.id).Show();
+                MessageBox.Show("Login ou password inválidos!", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

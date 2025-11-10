@@ -13,10 +13,19 @@ namespace EscolaVirtual2322
 
         public string log { get { return u_log; } set { u_log = value; } }
         public string pass { get { return u_pass; } set { u_pass = value; } }
-        public Utilizadores(string login, string password)
+        public Cargos cargo { get; set; } = Cargos.Aluno;
+        public Utilizadores() { }
+        public Utilizadores(string login, string password, Cargos cargo)
         {
             this.log = login;
             this.pass = password;
+            this.cargo = cargo;
         }
     }
+}
+public enum Cargos
+{
+    Admin,
+    Prof,
+    Aluno
 }

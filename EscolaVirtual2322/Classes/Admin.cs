@@ -8,6 +8,6 @@ namespace EscolaVirtual2322
 {
     public class Admin : Utilizadores
     {
-        public Admin() : base("admin", "admin") { }
+        public Admin() : base("admin", "admin", Cargos.Admin) { }
     }
 }

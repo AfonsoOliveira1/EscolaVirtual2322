@@ -16,7 +16,7 @@ namespace EscolaVirtual2322
         public int nif { get { return p_NIF; } set { p_NIF = value; } }
         public string nome { get { return p_nome; } set { p_nome = value; } }
 
-        public Professores(int ID, int NIF, string name, string login, string password) : base(login, password)
+        public Professores(int ID, int NIF, string name, string login, string password) : base(login, password, Cargos.Prof)
         {
             this.id = ID;
             this.nif = NIF;
