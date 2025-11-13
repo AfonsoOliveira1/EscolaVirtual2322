@@ -192,5 +192,49 @@ namespace EscolaVirtual2322
                 Application.Exit();
             }
         }
+
+        private void btnImportar_Click(object sender, EventArgs e)
+        {
+            Relatorio relatorio = new Relatorio();
+
+            using (OpenFileDialog saveFile = new OpenFileDialog())
+            {
+                saveFile.Title = "Importar Relatório";
+                saveFile.Filter = "Ficheiros JSON|*.json|Ficheiros XML|*.xml";
+                if (saveFile.ShowDialog() == DialogResult.OK)
+                {
+                    if(saveFile.FileName.EndsWith(".json"))
+                    {
+                        var json = System.IO.File.ReadAllText(saveFile.FileName);
+                        relatorio = System.Text.Json.JsonSerializer.Deserialize<Relatorio>(json);
+                    }
+                    else if (saveFile.FileName.EndsWith(".xml"))
+                    {
+                        var serializer = new System.Xml.Serialization.XmlSerializer(typeof(Relatorio));
+                        using(var reader = new System.IO.StreamReader(saveFile.FileName))
+                        {
+                            relatorio = (Relatorio)serializer.Deserialize(reader);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Selecione um ficheiro .json ou .xml válido!", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    StringBuilder sb = new StringBuilder();
+                    sb.AppendLine($"Professor: {relatorio.Professor}");
+                    sb.AppendLine($"Turma: {relatorio.Turma}");
+                    sb.AppendLine($"Disciplina: {relatorio.Disciplina}");
+                    sb.AppendLine($"Média da Turma: {relatorio.MediaTurma}");
+                    sb.AppendLine($"Melhor Aluno: {relatorio.MelhorAluno}");
+                    sb.AppendLine($"Pior Aluno: {relatorio.PiorAluno}");
+                    sb.AppendLine("Lista de Alunos e Notas:");
+                    foreach(var alunoNota in relatorio.ListaAlunos)
+                    {
+                        sb.AppendLine($"- {alunoNota.Aluno}: {alunoNota.Nota}");
+                    }
+                    MessageBox.Show(sb.ToString(), "Relatório Importado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
     }
 }

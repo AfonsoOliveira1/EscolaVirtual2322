@@ -52,7 +52,7 @@
             this.btnEnviar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnEnviar.Font = new System.Drawing.Font("Courier New", 10F);
             this.btnEnviar.Location = new System.Drawing.Point(13, 267);
-            this.btnEnviar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEnviar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEnviar.Name = "btnEnviar";
             this.btnEnviar.Size = new System.Drawing.Size(186, 25);
             this.btnEnviar.TabIndex = 5;
@@ -100,7 +100,7 @@
             this.tvTurmas.ImageIndex = 0;
             this.tvTurmas.ImageList = this.imageList1;
             this.tvTurmas.Location = new System.Drawing.Point(229, 41);
-            this.tvTurmas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tvTurmas.Margin = new System.Windows.Forms.Padding(2);
             this.tvTurmas.Name = "tvTurmas";
             this.tvTurmas.SelectedImageIndex = 0;
             this.tvTurmas.Size = new System.Drawing.Size(355, 309);
@@ -130,7 +130,7 @@
             // txtInserir
             // 
             this.txtInserir.Location = new System.Drawing.Point(13, 81);
-            this.txtInserir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtInserir.Margin = new System.Windows.Forms.Padding(2);
             this.txtInserir.Name = "txtInserir";
             this.txtInserir.Size = new System.Drawing.Size(186, 20);
             this.txtInserir.TabIndex = 15;
@@ -143,7 +143,7 @@
             this.btnInserir.Enabled = false;
             this.btnInserir.Font = new System.Drawing.Font("Courier New", 10F);
             this.btnInserir.Location = new System.Drawing.Point(13, 103);
-            this.btnInserir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnInserir.Margin = new System.Windows.Forms.Padding(2);
             this.btnInserir.Name = "btnInserir";
             this.btnInserir.Size = new System.Drawing.Size(186, 28);
             this.btnInserir.TabIndex = 16;
@@ -204,6 +204,7 @@
             this.btnImportar.TabIndex = 20;
             this.btnImportar.Text = "Importar";
             this.btnImportar.UseVisualStyleBackColor = false;
+            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
             // 
             // ProfForm
             // 
