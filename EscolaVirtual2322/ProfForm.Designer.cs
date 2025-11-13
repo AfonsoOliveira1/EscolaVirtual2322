@@ -43,6 +43,7 @@
             this.lblTurmas = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnImportar = new System.Windows.Forms.Button();
+            this.btnRelatorio = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -51,10 +52,10 @@
             // 
             this.btnEnviar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnEnviar.Font = new System.Drawing.Font("Courier New", 10F);
-            this.btnEnviar.Location = new System.Drawing.Point(13, 267);
-            this.btnEnviar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEnviar.Location = new System.Drawing.Point(17, 329);
+            this.btnEnviar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEnviar.Name = "btnEnviar";
-            this.btnEnviar.Size = new System.Drawing.Size(186, 25);
+            this.btnEnviar.Size = new System.Drawing.Size(248, 31);
             this.btnEnviar.TabIndex = 5;
             this.btnEnviar.Text = "Enviar Mensagens";
             this.btnEnviar.UseVisualStyleBackColor = false;
@@ -64,10 +65,9 @@
             // 
             this.lblProf.AutoSize = true;
             this.lblProf.Font = new System.Drawing.Font("Courier New", 17F);
-            this.lblProf.Location = new System.Drawing.Point(9, 13);
-            this.lblProf.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblProf.Location = new System.Drawing.Point(12, 16);
             this.lblProf.Name = "lblProf";
-            this.lblProf.Size = new System.Drawing.Size(138, 25);
+            this.lblProf.Size = new System.Drawing.Size(167, 32);
             this.lblProf.TabIndex = 6;
             this.lblProf.Text = "Bem vindo";
             // 
@@ -75,9 +75,10 @@
             // 
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnBack.Font = new System.Drawing.Font("Courier New", 10F);
-            this.btnBack.Location = new System.Drawing.Point(14, 327);
+            this.btnBack.Location = new System.Drawing.Point(19, 402);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(184, 23);
+            this.btnBack.Size = new System.Drawing.Size(245, 28);
             this.btnBack.TabIndex = 7;
             this.btnBack.Text = "Voltar";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -87,9 +88,10 @@
             // 
             this.btnDados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnDados.Font = new System.Drawing.Font("Courier New", 10F);
-            this.btnDados.Location = new System.Drawing.Point(14, 297);
+            this.btnDados.Location = new System.Drawing.Point(19, 366);
+            this.btnDados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDados.Name = "btnDados";
-            this.btnDados.Size = new System.Drawing.Size(184, 24);
+            this.btnDados.Size = new System.Drawing.Size(245, 30);
             this.btnDados.TabIndex = 11;
             this.btnDados.Text = "Alterar Dados";
             this.btnDados.UseVisualStyleBackColor = false;
@@ -99,11 +101,11 @@
             // 
             this.tvTurmas.ImageIndex = 0;
             this.tvTurmas.ImageList = this.imageList1;
-            this.tvTurmas.Location = new System.Drawing.Point(229, 41);
-            this.tvTurmas.Margin = new System.Windows.Forms.Padding(2);
+            this.tvTurmas.Location = new System.Drawing.Point(305, 50);
+            this.tvTurmas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tvTurmas.Name = "tvTurmas";
             this.tvTurmas.SelectedImageIndex = 0;
-            this.tvTurmas.Size = new System.Drawing.Size(355, 309);
+            this.tvTurmas.Size = new System.Drawing.Size(472, 379);
             this.tvTurmas.TabIndex = 13;
             // 
             // imageList1
@@ -120,19 +122,18 @@
             // 
             this.lblInserir.AutoSize = true;
             this.lblInserir.Font = new System.Drawing.Font("Courier New", 10F);
-            this.lblInserir.Location = new System.Drawing.Point(10, 62);
-            this.lblInserir.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblInserir.Location = new System.Drawing.Point(13, 76);
             this.lblInserir.Name = "lblInserir";
-            this.lblInserir.Size = new System.Drawing.Size(112, 17);
+            this.lblInserir.Size = new System.Drawing.Size(139, 20);
             this.lblInserir.TabIndex = 14;
             this.lblInserir.Text = "Inserir Nota:";
             // 
             // txtInserir
             // 
-            this.txtInserir.Location = new System.Drawing.Point(13, 81);
-            this.txtInserir.Margin = new System.Windows.Forms.Padding(2);
+            this.txtInserir.Location = new System.Drawing.Point(17, 100);
+            this.txtInserir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtInserir.Name = "txtInserir";
-            this.txtInserir.Size = new System.Drawing.Size(186, 20);
+            this.txtInserir.Size = new System.Drawing.Size(247, 22);
             this.txtInserir.TabIndex = 15;
             this.txtInserir.TextChanged += new System.EventHandler(this.txtInserir_TextChanged);
             this.txtInserir.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInserir_KeyPress);
@@ -142,10 +143,10 @@
             this.btnInserir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnInserir.Enabled = false;
             this.btnInserir.Font = new System.Drawing.Font("Courier New", 10F);
-            this.btnInserir.Location = new System.Drawing.Point(13, 103);
-            this.btnInserir.Margin = new System.Windows.Forms.Padding(2);
+            this.btnInserir.Location = new System.Drawing.Point(17, 127);
+            this.btnInserir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInserir.Name = "btnInserir";
-            this.btnInserir.Size = new System.Drawing.Size(186, 28);
+            this.btnInserir.Size = new System.Drawing.Size(248, 34);
             this.btnInserir.TabIndex = 16;
             this.btnInserir.Text = "Inserir";
             this.btnInserir.UseVisualStyleBackColor = false;
@@ -154,9 +155,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::EscolaVirtual2322.Properties.Resources.update;
-            this.pictureBox1.Location = new System.Drawing.Point(543, 11);
+            this.pictureBox1.Location = new System.Drawing.Point(724, 14);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(41, 25);
+            this.pictureBox1.Size = new System.Drawing.Size(55, 31);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
@@ -166,16 +168,16 @@
             // 
             this.lblTurmas.AutoSize = true;
             this.lblTurmas.Font = new System.Drawing.Font("Courier New", 17F);
-            this.lblTurmas.Location = new System.Drawing.Point(224, 11);
-            this.lblTurmas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTurmas.Location = new System.Drawing.Point(299, 14);
             this.lblTurmas.Name = "lblTurmas";
-            this.lblTurmas.Size = new System.Drawing.Size(110, 25);
+            this.lblTurmas.Size = new System.Drawing.Size(133, 32);
             this.lblTurmas.TabIndex = 19;
             this.lblTurmas.Text = "Turmas:";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.btnRelatorio);
             this.panel1.Controls.Add(this.btnImportar);
             this.panel1.Controls.Add(this.tvTurmas);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -187,33 +189,47 @@
             this.panel1.Controls.Add(this.txtInserir);
             this.panel1.Controls.Add(this.btnDados);
             this.panel1.Controls.Add(this.lblInserir);
-            this.panel1.Location = new System.Drawing.Point(28, 26);
+            this.panel1.Location = new System.Drawing.Point(37, 32);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(603, 370);
+            this.panel1.Size = new System.Drawing.Size(804, 455);
             this.panel1.TabIndex = 20;
             // 
             // btnImportar
             // 
             this.btnImportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnImportar.Enabled = false;
             this.btnImportar.Font = new System.Drawing.Font("Courier New", 10F);
-            this.btnImportar.Location = new System.Drawing.Point(13, 135);
-            this.btnImportar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnImportar.Location = new System.Drawing.Point(17, 166);
+            this.btnImportar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnImportar.Name = "btnImportar";
-            this.btnImportar.Size = new System.Drawing.Size(186, 28);
+            this.btnImportar.Size = new System.Drawing.Size(248, 34);
             this.btnImportar.TabIndex = 20;
             this.btnImportar.Text = "Importar";
             this.btnImportar.UseVisualStyleBackColor = false;
             this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
             // 
+            // btnRelatorio
+            // 
+            this.btnRelatorio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnRelatorio.Font = new System.Drawing.Font("Courier New", 10F);
+            this.btnRelatorio.Location = new System.Drawing.Point(19, 204);
+            this.btnRelatorio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRelatorio.Name = "btnRelatorio";
+            this.btnRelatorio.Size = new System.Drawing.Size(248, 34);
+            this.btnRelatorio.TabIndex = 21;
+            this.btnRelatorio.Text = "Relatorio";
+            this.btnRelatorio.UseVisualStyleBackColor = false;
+            this.btnRelatorio.Click += new System.EventHandler(this.btnRelatorio_Click);
+            // 
             // ProfForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(678, 426);
+            this.ClientSize = new System.Drawing.Size(904, 524);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "ProfForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -240,5 +256,6 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnImportar;
+        private System.Windows.Forms.Button btnRelatorio;
     }
 }

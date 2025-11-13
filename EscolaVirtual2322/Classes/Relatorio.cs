@@ -19,50 +19,61 @@ namespace EscolaVirtual2322.Classes
         public string MelhorAluno { get; set; }
         public string PiorAluno { get; set; }
         public List<AlunoNota> ListaAlunos { get; set; }
-        public static Relatorio GerarRelatorio(Turmas turma, Professores professor, Disciplina disciplina)
+        public static Relatorio GerarRelatorio(Turmas turma, Professores professor)
         {
-            bool professorLeciona = disciplina.profs.Any(p => p.id == professor.id);
-            //verifica se o professor da essa disciplina
-            if (!professorLeciona)
-                throw new Exception($"O professor {professor.nome} não leciona a disciplina {disciplina.sigla} nesta turma.");
+            var disciplinas = turma.listDisciplinas
+             .Where(d => d.profs.Any(p => p.id == professor.id))
+             .ToList();
 
-            var notas = turma.listAlunos
+            if (disciplinas == null) 
+                throw new Exception($"O professor {professor.nome} não leciona nenhuma disciplina nesta turma.");
+
+            List<AlunoNota> listaAlunosNotas = new List<AlunoNota>();
+            foreach (var disciplina in disciplinas)
+            {
+                var notas = turma.listAlunos
                  .SelectMany(a => a.notas)
                  .Where(n => n.disc == disciplina.sigla)
                  .Select(n => n.classi)
                  .ToList();
 
-            double mediaTurma = notas.Any() ? notas.Average() : 0.0;//se nao houver notas, media 0
+                double mediaTurma = notas.Any() ? notas.Average() : 0.0;//se nao houver notas, media 0
 
-            string piorAluno = turma.listAlunos
-                .Select(a => new
+                foreach (var aluno in turma.listAlunos)
                 {
-                    Aluno = a.nome,
-                    Nota = a.notas.Where(n => n.disc == disciplina.sigla).Select(n => n.classi).FirstOrDefault()
-                })
-                .OrderBy(an => an.Nota)
-                .Select(an => an.Aluno)
-                .FirstOrDefault();
+                    var notaCheck = aluno.notas.FirstOrDefault(n => n.disc == disciplina.sigla);
+                    if(notaCheck == null) 
+                        throw new Exception($"Este aluno {aluno.nome} nao tem nota na disciplina de {disciplina.sigla}"); //pula alunos sem nota na disciplina
 
-            string melhorAluno = turma.listAlunos
-                .Select(a => new
+                    var nota = aluno.notas.Where(n => n.disc == disciplina.sigla).Select(c => c.classi).First();
+                    listaAlunosNotas.Add(new AlunoNota { Aluno = aluno.nome, Nota = nota});
+                }
+            }
+            if(listaAlunosNotas.Count == 0)
+                throw new Exception($"Não há notas registradas para a turma {turma.nome} nas disciplinas lecionadas pelo professor {professor.nome}.");
+
+            var mediasPorAluno = listaAlunosNotas
+                .GroupBy(an => an.Aluno)
+                .Select(g => new
                 {
-                    Aluno = a.nome,
-                    Nota = a.notas.Where(n => n.disc == disciplina.sigla).Select(n => n.classi).FirstOrDefault()
+                    Aluno = g.Key,
+                    Media = g.Average(an => an.Nota)
                 })
-                .OrderBy(an => an.Nota)
-                .Select(an => an.Aluno)
-                .FirstOrDefault();
+                .ToList();
+            var maxMedia = mediasPorAluno.Max(a => a.Media);
+            var melhores = mediasPorAluno.Where(a => a.Media == maxMedia).Select(a => a.Aluno).ToList();
 
+            var minMedia = mediasPorAluno.Min(a => a.Media);
+            var piores = mediasPorAluno.Where(x => x.Media == minMedia).Select(a => a.Aluno).ToList();
             var re = new Relatorio
             {
                 Professor = professor.nome,
                 Turma = turma.nome,
-                Disciplina = disciplina.sigla,
-                MediaTurma = mediaTurma,
-                MelhorAluno = melhorAluno,
-                PiorAluno = piorAluno,
-                ListaAlunos = new List<AlunoNota>()
+                Disciplina = string.Join(", ", disciplinas.Select(d => d.sigla)),
+                MediaTurma = Math.Round(listaAlunosNotas.Average(x => x.Nota), 2),
+                MelhorAluno = string.Join(", ", melhores),
+                PiorAluno = string.Join(", ", piores),
+                ListaAlunos = listaAlunosNotas
             };
             return re;
         }
@@ -98,7 +109,7 @@ namespace EscolaVirtual2322.Classes
         {
             public string Aluno { get; set; }
             public double Nota { get; set; }
-            public string Modulo { get; set; } 
+            public string Modulo { get; set; }
         }
     }
 }

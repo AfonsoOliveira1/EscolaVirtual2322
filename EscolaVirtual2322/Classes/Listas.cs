@@ -46,6 +46,15 @@ namespace EscolaVirtual2322
                     anos[i].turmas[j].listDisciplinas.Add(new Disciplina("EF", "Educação Física"));
                 }   
             }
+            anos[0].turmas[0].listDisciplinas.Add(new Disciplina("PSI", "Programação de Sistemas Informaticos"));
+            anos[0].turmas[0].listDisciplinas.Add(new Disciplina("SO", "Sistema Operativos"));
+            anos[0].turmas[0].listAlunos.Add(new Alunos("I220082", 265323456, "Miguel", "miguel@inete.net", "Miguel123"));
+            anos[0].turmas[0].listAlunos.Add(new Alunos("I230065", 123532123, "Afonso", "afonso@inete.net", "Afonso123"));
+            anos[0].turmas[0].listDisciplinas[4].profs.Add(new Professores(0, 423123432, "JC", "jc@inete.net", "jc123"));
+            anos[0].turmas[0].listDisciplinas[5].profs.Add(new Professores(1, 876543567, "JRC", "jrc@inete.net", "jrc123"));
+            anos[0].turmas[0].listAlunos[0].notas.Add(new Notas(15.5, "PSI"));
+            anos[0].turmas[0].listAlunos[1].notas.Add(new Notas(17.4, "PSI"));
+            /*
             UsersJSON usersJSON = new UsersJSON();
             Admin admin = new Admin();
             if (!usersJSON.ObterUtilizadores().Any())
@@ -56,8 +65,7 @@ namespace EscolaVirtual2322
                 usersJSON.AdicionarUtilizador(new Professores(0, 423123432, "JC", "jc@inete.net", "jc123"));
                 usersJSON.AdicionarUtilizador(new Professores(1, 876543567, "JRC", "jrc@inete.net", "jrc123"));
             }
-            anos[0].turmas[0].listDisciplinas.Add(new Disciplina("PSI", "Programação de Sistemas Informaticos"));
-            anos[0].turmas[0].listDisciplinas.Add(new Disciplina("SO", "Sistema Operativos"));
+            */
         }
     }
 }

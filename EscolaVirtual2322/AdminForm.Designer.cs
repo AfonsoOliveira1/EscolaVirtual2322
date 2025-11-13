@@ -46,6 +46,7 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnImportar = new System.Windows.Forms.Button();
             this.grbAções.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -236,6 +237,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.btnImportar);
             this.panel1.Controls.Add(this.btnBack);
             this.panel1.Controls.Add(this.grbAções);
             this.panel1.Controls.Add(this.tvEscola);
@@ -258,6 +260,19 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // btnImportar
+            // 
+            this.btnImportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnImportar.Font = new System.Drawing.Font("Courier New", 10.2F);
+            this.btnImportar.Location = new System.Drawing.Point(319, 23);
+            this.btnImportar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnImportar.Name = "btnImportar";
+            this.btnImportar.Size = new System.Drawing.Size(261, 28);
+            this.btnImportar.TabIndex = 9;
+            this.btnImportar.Text = "Importar";
+            this.btnImportar.UseVisualStyleBackColor = false;
+            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
             // 
             // AdminForm
             // 
@@ -299,5 +314,6 @@
         private System.Windows.Forms.Button btnDadosProf;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnImportar;
     }
 }

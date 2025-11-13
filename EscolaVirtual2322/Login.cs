@@ -45,6 +45,7 @@ namespace EscolaVirtual2322
 
         private void btnLog_Click(object sender, EventArgs e)
         {
+            /*
             string login = txtLogin.Text.Trim();
             string password = txtPassword.Text.Trim();
             UsersJSON usersJSON = new UsersJSON();
@@ -73,6 +74,38 @@ namespace EscolaVirtual2322
             else
             {
                 MessageBox.Show("Login ou password inválidos!", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            */
+            string login = txtLogin.Text.Trim();
+            string password = txtPassword.Text.Trim();
+
+            var AlunoLogin = Listas.anos
+                            .SelectMany(a => a.turmas)
+                            .SelectMany(t => t.listAlunos)
+                            .FirstOrDefault(c => c.log == login && c.pass == password);
+
+            var ProfLogin = Listas.anos
+                            .SelectMany(a => a.turmas)
+                            .SelectMany(t => t.listDisciplinas)
+                            .SelectMany(d => d.profs)
+                            .FirstOrDefault(p => p.log == login && p.pass == password);
+
+            if (login == admin.log && password == admin.pass)
+            {
+                this.Hide();
+                new AdminForm().Show();
+            }
+
+            if (AlunoLogin != null)
+            {
+                this.Hide();
+                new AlunoForm(AlunoLogin.numAluno).Show();
+            }
+
+            if (ProfLogin != null)
+            {
+                this.Hide();
+                new ProfForm(ProfLogin.id).Show();
             }
         }
 
