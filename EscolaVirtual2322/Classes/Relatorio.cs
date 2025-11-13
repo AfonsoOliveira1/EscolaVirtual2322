@@ -46,8 +46,8 @@ namespace EscolaVirtual2322.Classes
         }
         public static Relatorio ImportarRelatorioJSON(string caminho)
         {
-            var json = File.ReadAllText(caminho);
-            return JsonSerializer.Deserialize<Relatorio>(json);
+            var json1 = File.ReadAllText(caminho);
+            return JsonSerializer.Deserialize<Relatorio>(json1);
         }
 
         public static Relatorio ImportarRelatorioXML(string caminho)
