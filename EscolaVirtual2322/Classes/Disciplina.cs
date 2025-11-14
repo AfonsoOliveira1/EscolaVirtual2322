@@ -13,7 +13,7 @@ namespace EscolaVirtual2322
         public List<Professores> profs { get; set; }
         public string sigla { get {  return d_sigla; } set { d_sigla = value; } }
         public string nome { get { return d_nome; } set { d_nome = value; } }
-
+        public Disciplina() { }
         public Disciplina(string sigla, string nome)
         {
             this.sigla = sigla;

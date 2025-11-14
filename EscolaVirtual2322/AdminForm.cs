@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.IO.Pipes;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,7 @@ namespace EscolaVirtual2322
         bool sair = true;
         public void PopularTreeView()
         {
+            tvEscola.Nodes.Clear();
             tvEscola.CollapseAll();
             TreeNode inete = new TreeNode();
             inete.Text = "INETE";
@@ -167,40 +169,44 @@ namespace EscolaVirtual2322
         {
             AddAno form = new AddAno();
             form.ShowDialog();
+            PopularTreeView();
         }
 
         private void btnAddTurma_Click(object sender, EventArgs e)
         {
             AddTurma form = new AddTurma();
             form.ShowDialog();
+            PopularTreeView();
         }
 
         private void btnAddAlunos_Click(object sender, EventArgs e)
         {
             AddAluno form = new AddAluno();
             form.ShowDialog();
+            PopularTreeView();
         }
 
         private void btnAddDisciplina_Click(object sender, EventArgs e)
         {
             AddDisciplina form = new AddDisciplina();
             form.ShowDialog();
+            PopularTreeView();
         }
-        private void button3_Click(object sender, EventArgs e)
+        private void btnAddProf_Click(object sender, EventArgs e)
         {
             AddProf form = new AddProf();
             form.ShowDialog();
+            PopularTreeView();
         }
-
         private void btnPedidosDados_Click(object sender, EventArgs e)
         {
             PedidosDados pedidos = new PedidosDados();
             pedidos.ShowDialog();
+            PopularTreeView();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            tvEscola.Nodes.Clear();
             PopularTreeView();
         }
 
@@ -208,6 +214,7 @@ namespace EscolaVirtual2322
         {
             PedidosProf pedidos = new PedidosProf();
             pedidos.ShowDialog();
+            PopularTreeView();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -303,6 +310,7 @@ namespace EscolaVirtual2322
             {
                 MessageBox.Show("Não há nada selecionado!", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            PopularTreeView();
         }
 
         private void AdminForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -312,10 +320,107 @@ namespace EscolaVirtual2322
                 Application.Exit();
             }
         }
+        private void ImportarTurmas(TurmaPath turmas)
+        {
+            try
+            {
+                var ano = Listas.anos.FirstOrDefault(a => a.nome == turmas.ano);
+
+                if (ano == null)
+                {
+                    ano = new Ano(Listas.anos.Count + 1, turmas.ano);
+                    Listas.anos.Add(ano);
+                }
+
+                foreach (var turmaImportada in turmas.turmas)
+                {
+                    var turmaExistente = ano.turmas.FirstOrDefault(t => t.sigla == turmaImportada.sigla);
+
+                    if (turmaExistente == null)
+                    {
+                        turmaExistente = new Turmas(turmaImportada.sigla, turmaImportada.nome);
+                        ano.turmas.Add(turmaExistente);
+                    }
+
+                    // Importar alunos
+                    foreach (var alunoImportado in turmaImportada.listAlunos)
+                    {
+                        var alunoExistente = Listas.anos //nenhum aluno pode pertencer a duas turmas diferentes.
+                            .SelectMany(a => a.turmas)
+                            .SelectMany(t => t.listAlunos)
+                            .Where(a => a.numAluno == alunoImportado.numAluno)
+                            .ToList();
+
+                        if (alunoExistente.Count == 0)
+                            turmaExistente.listAlunos.Add(alunoImportado);
+                    }
+
+                    // Importar disciplinas
+                    foreach (var disciplinaImportada in turmaImportada.listDisciplinas)
+                    {
+                        var disciplinaExistente = turmaExistente.listDisciplinas //se tiver uma disciplina a mais na mesma turma.
+                            .FirstOrDefault(d => d.sigla == disciplinaImportada.sigla);
+
+                        if (disciplinaExistente == null)
+                            turmaExistente.listDisciplinas.Add(disciplinaImportada);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao importar dados: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void ImportarAlunos(AlunosPath alunos)
+        {
+            try
+            {
+                var ano = Listas.anos.FirstOrDefault(a => a.nome == alunos.ano);
+
+                if (ano == null)
+                {
+                    ano = new Ano(Listas.anos.Count + 1, alunos.ano);
+                    Listas.anos.Add(ano);
+                }
+
+                var turma = ano.turmas.FirstOrDefault(t => t.sigla == alunos.turma.sigla);
+
+                if (turma == null)
+                {
+                    turma = new Turmas(alunos.turma.sigla, alunos.turma.nome);
+                    ano.turmas.Add(turma);
+                }
+
+                // Importar alunos
+                foreach (var alunoImportado in alunos.alunos)
+                {
+                    var alunoExistente = Listas.anos //nenhum aluno pode pertencer a duas turmas diferentes.
+                        .SelectMany(a => a.turmas)
+                        .SelectMany(t => t.listAlunos)
+                        .Where(a => a.numAluno == alunoImportado.numAluno)
+                        .ToList();
+
+                    if (alunoExistente.Count == 0)
+                        turma.listAlunos.Add(alunoImportado);
+
+
+                    // Importar notas
+                    foreach (var notasImportadas in alunoImportado.notas)
+                    {
+                        alunoImportado.notas.Add(notasImportadas);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao importar dados: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void btnImportar_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog fileDialog = new OpenFileDialog)
+            using (OpenFileDialog fileDialog = new OpenFileDialog())
             {
                 fileDialog.Title = "Importar Dados da Escola";
                 fileDialog.Filter = "Arquivo JSON|*.json";
@@ -326,95 +431,21 @@ namespace EscolaVirtual2322
                     {
                         if (caminho.EndsWith(".json"))
                         {
-                            MessageBox.Show("Quer importar Alunos? Escolha não se for Importar Turmas.", "Importar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                            if (DialogResult.Yes == DialogResult)
+                            var resposta = MessageBox.Show("Quer importar Alunos? Escolha não se for Importar Turmas.", "Importar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            var jsonReader = File.ReadAllText(caminho);
+                            if (resposta == DialogResult.Yes)
                             {
-                                var jsonReader = System.IO.File.ReadAllText(caminho);
                                 AlunosPath alunos = new AlunosPath();
-                                alunos = JsonSerializer.Deserialize<AlunosPath>(jsonReader, new JsonSerializerOptions { WriteIndented = true });
+                                alunos = JsonSerializer.Deserialize<AlunosPath>(jsonReader, new JsonSerializerOptions { WriteIndented = true, PropertyNameCaseInsensitive = true });
+                                ImportarAlunos(alunos);
                             }
                             else
                             {
-                                var jsonReader = System.IO.File.ReadAllText(caminho);
                                 TurmaPath turmas = new TurmaPath();
-                                turmas = JsonSerializer.Deserialize<TurmaPath>(jsonReader, new JsonSerializerOptions { WriteIndented = true });
-                                var ano = Listas.anos.FirstOrDefault(a => a.nome == turmas.ano);
-                                var alunos = Listas.anos.SelectMany(a => a.turmas).SelectMany(t => t.listAlunos).ToList();
-                                TreeNode anoNode;
-                                if (ano == null)
-                                {
-                                    ano = new Ano(Listas.anos.Count + 1, turmas.ano);
-                                    Listas.anos.Add(ano);
-
-                                    anoNode = new TreeNode(turmas.ano);
-                                    tvEscola.Nodes.Add(anoNode);
-                                }
-                                else
-                                {
-                                    anoNode = tvEscola.Nodes
-                                            .Cast<TreeNode>()
-                                            .FirstOrDefault(n => n.Text == ano.nome);
-                                    // Percorre as turmas importadas
-                                    foreach (var turmaImportada in turmas.turmas)
-                                    {
-                                        var turmaExistente = ano.turmas.FirstOrDefault(t => t.sigla == turmaImportada.sigla);
-                                        TreeNode turmaNode;
-                                        if (turmaExistente == null)
-                                        {
-                                            turmaExistente = new Turmas(turmaImportada.sigla, turmaImportada.nome);
-                                            ano.turmas.Add(turmaExistente);
-
-                                            turmaNode = new TreeNode(turmaImportada.sigla);
-                                            turmaNode.ImageIndex = turmaNode.SelectedImageIndex = 2;
-                                            anoNode.Nodes.Add(turmaNode);
-                                        }
-                                        else
-                                            turmaNode = anoNode.Nodes
-                                                    .Cast<TreeNode>()
-                                                    .FirstOrDefault(n => n.Text == turmaExistente.sigla);
-                                        // Importar alunos
-                                        foreach (var alunoImportado in turmaImportada.listAlunos)
-                                        {
-                                            var alunoExistente = turmaExistente.listAlunos
-                                                .FirstOrDefault(a => a.numAluno == alunoImportado.numAluno);
-
-                                            if (alunoExistente == null)
-                                            {
-                                                turmaExistente.listAlunos.Add(new Alunos(
-                                                    alunoImportado.numAluno,
-                                                    alunoImportado.nif,
-                                                    alunoImportado.nome,
-                                                    alunoImportado.log,
-                                                    alunoImportado.pass
-                                                ));
-
-                                                TreeNode alunoNode = new TreeNode(alunoImportado.nome);
-                                                alunoNode.ImageIndex = alunoNode.SelectedImageIndex = 3;
-                                                turmaNode.Nodes.Add(alunoNode);
-                                            }
-                                        }
-
-                                        // Importar disciplinas
-                                        foreach (var disciplinaImportada in turmaImportada.listDisciplinas)
-                                        {
-                                            var disciplinaExistente = turmaExistente.listDisciplinas
-                                                .FirstOrDefault(d => d.sigla == disciplinaImportada.sigla);
-
-                                            if (disciplinaExistente == null)
-                                            {
-                                                turmaExistente.listDisciplinas.Add(new Disciplina(
-                                                    disciplinaImportada.sigla,
-                                                    disciplinaImportada.nome
-                                                ));
-
-                                                TreeNode disciplinaNode = new TreeNode(disciplinaImportada.sigla);
-                                                disciplinaNode.ImageIndex = disciplinaNode.SelectedImageIndex = 4;
-                                                turmaNode.Nodes.Add(disciplinaNode);
-                                            }
-                                        }
-                                    }
-                                }
+                                turmas = JsonSerializer.Deserialize<TurmaPath>(jsonReader, new JsonSerializerOptions { WriteIndented = true, PropertyNameCaseInsensitive = true });
+                                ImportarTurmas(turmas);
                             }
+                            PopularTreeView();
                         }
                         else
                         {
@@ -422,7 +453,6 @@ namespace EscolaVirtual2322
                             return;
                         }
                         MessageBox.Show("Dados importados com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        PopularTreeView();
                     }
                     catch (Exception ex)
                     {
@@ -434,7 +464,8 @@ namespace EscolaVirtual2322
         public class AlunosPath
         {
             public string ano { get; set; }
-            public string turma { get; set; }
+            public Turmas turma { get; set; }
+            public List<Alunos> alunos { get; set; }
         }
         public class TurmaPath
         {

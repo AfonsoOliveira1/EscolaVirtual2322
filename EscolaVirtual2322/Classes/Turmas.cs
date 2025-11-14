@@ -16,6 +16,7 @@ namespace EscolaVirtual2322
         public string sigla { get { return t_Sigla; } set { t_Sigla = value; } }
         public string nome { get { return t_nome; } set { t_nome = value; } }
 
+        public Turmas() { }
         public Turmas(string sigla, string nomeTurma)
         {
             this.sigla = sigla;

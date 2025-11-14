@@ -14,6 +14,7 @@ namespace EscolaVirtual2322.Classes
         public double classi { get { return n_classi; } set { n_classi = value; } }
         public string disc { get { return n_disc; } set { n_disc = value; } }
 
+        public Notas() { }
         public Notas(double classificação, string disciplina)
         {
             this.classi = classificação;
