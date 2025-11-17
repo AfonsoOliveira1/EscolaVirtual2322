@@ -105,6 +105,19 @@ namespace EscolaVirtual2322.Classes
             }
         }
 
+        public static void GerarRelatorioAlunos(Alunos aluno, string caminho)
+        {
+            var notas = aluno.notas;
+            var relatorioAluno = new
+            {
+                Aluno = aluno.nome,
+                Notas = notas.Select(n => new { Disciplina = n.disc, Nota = n.classi }).ToList(),
+                MediaFinal = notas.Any() ? notas.Average(n => n.classi) : 0.0
+            };
+            var json = JsonSerializer.Serialize(relatorioAluno, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(Path.Combine(caminho, $"{aluno.nome}_relatorio.json"), json);
+        }
+
         public class AlunoNota
         {
             public string Aluno { get; set; }

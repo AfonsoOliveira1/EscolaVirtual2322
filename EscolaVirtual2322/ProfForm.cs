@@ -1,4 +1,5 @@
 ﻿using EscolaVirtual2322.Classes;
+using EscolaVirtual2322.Dados;
 using EscolaVirtual2322.ProfFormsAdicionais;
 using System;
 using System.Data;
@@ -138,6 +139,7 @@ namespace EscolaVirtual2322
                         var ano = Listas.anos.FirstOrDefault(a => a.nome == anoNode.Text);
                         var turma = ano.turmas.FirstOrDefault(t => t.sigla == turmaNode.Text);
                         var disciplina = turma.listDisciplinas.FirstOrDefault(d => d.sigla == discNode.Text);
+                        var prof = disciplina.profs.FirstOrDefault(p => p.id == id);
 
                         if (turma != null)
                         {
@@ -146,6 +148,16 @@ namespace EscolaVirtual2322
                             var nota = aluno.notas.FirstOrDefault(d => d.disc == discNode.Text);
                             if (aluno != null)
                             {
+                                LogsNota log = new LogsNota
+                                {
+                                    nome = prof.nome,
+                                    aluno = aluno.nome,
+                                    disciplina = discNode.Text,
+                                    valorAntigo = nota != null ? Convert.ToString(nota.classi) : "Sem Nota",
+                                    valorNovo = txtInserir.Text,
+                                    dataAlteracao = DateTime.Now
+                                };
+                                LogsNotasJSON logs = new LogsNotasJSON(log);
                                 aluno.notas.Remove(nota);
                                 aluno.notas.Add(new Notas(Convert.ToDouble(txtInserir.Text), discNode.Text));
                                 break;
@@ -203,16 +215,11 @@ namespace EscolaVirtual2322
                 {
                     if(saveFile.FileName.EndsWith(".json"))
                     {
-                        var json = File.ReadAllText(saveFile.FileName);
-                        relatorio = System.Text.Json.JsonSerializer.Deserialize<Relatorio>(json);
+                        relatorio = Relatorio.ImportarRelatorioJSON(saveFile.FileName);
                     }
                     else if (saveFile.FileName.EndsWith(".xml"))
                     {
-                        var serializer = new System.Xml.Serialization.XmlSerializer(typeof(Relatorio));
-                        using(var reader = new StreamReader(saveFile.FileName))
-                        {
-                            relatorio = (Relatorio)serializer.Deserialize(reader);
-                        }
+                        relatorio = Relatorio.ImportarRelatorioXML(saveFile.FileName);
                     }
                     else
                     {

@@ -16,6 +16,7 @@ namespace EscolaVirtual2322
         public int id { get { return a_id; } set { a_id = value; } }
         public string nome { get { return a_nome; } set { a_nome = value; } }
 
+        public Ano() { }
         public Ano(int ID, string nomeAno)
         {
             this.id = ID;

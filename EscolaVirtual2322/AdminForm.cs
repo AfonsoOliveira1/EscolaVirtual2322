@@ -1,4 +1,6 @@
 ﻿using EscolaVirtual2322.AdminFormsAdicionais;
+using EscolaVirtual2322.Classes;
+using EscolaVirtual2322.Dados;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +13,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace EscolaVirtual2322
 {
@@ -471,6 +474,77 @@ namespace EscolaVirtual2322
         {
             public string ano { get; set; }
             public List<Turmas> turmas { get; set; }
+        }
+
+        private void btnBackup_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using(FolderBrowserDialog folder = new FolderBrowserDialog())
+                {
+                    folder.Description = "Escolha a pasta para salvar o backup";
+                    folder.ShowNewFolderButton = true;
+                    DialogResult result = folder.ShowDialog();
+                    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folder.SelectedPath))
+                    {
+                        BackupXML.CriarBackup(Path.Combine(folder.SelectedPath, "Backup.xml"));
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Erro ao criar backup: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnBackupLoad_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (OpenFileDialog file = new OpenFileDialog())
+                {
+                    file.Title = "Escolha o ficheiro para carregar o backup";
+                    file.Filter = "Arquivo XML|*.xml";
+                    if (file.ShowDialog() == DialogResult.OK)
+                    {
+                        BackupXML.CarregarBackup(file.FileName);
+                    }
+                }
+                MessageBox.Show("Sucesso ao Carregar o Backup!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao criar backup: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnRelatorios_Click(object sender, EventArgs e)
+        {
+            var alunos = Listas.anos
+                .SelectMany(a => a.turmas)
+                .SelectMany(t => t.listAlunos)
+                .ToList();
+
+            try
+            {
+                using (FolderBrowserDialog folder = new FolderBrowserDialog())
+                {
+                    folder.Description = "Escolha a pasta para salvar os relatorios";
+                    folder.ShowNewFolderButton = true;
+                    DialogResult result = folder.ShowDialog();
+                    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folder.SelectedPath))
+                    {
+                        foreach(var aluno in alunos)
+                        {
+                            Relatorio.GerarRelatorioAlunos(aluno, folder.SelectedPath);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao criar os relatorios: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

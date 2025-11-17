@@ -47,6 +47,9 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnBackup = new System.Windows.Forms.Button();
+            this.btnBackupLoad = new System.Windows.Forms.Button();
+            this.btnRelatorios = new System.Windows.Forms.Button();
             this.grbAções.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -57,10 +60,11 @@
             this.tvEscola.BackColor = System.Drawing.SystemColors.Window;
             this.tvEscola.ImageIndex = 0;
             this.tvEscola.ImageList = this.imageList1;
-            this.tvEscola.Location = new System.Drawing.Point(239, 52);
+            this.tvEscola.Location = new System.Drawing.Point(319, 64);
+            this.tvEscola.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tvEscola.Name = "tvEscola";
             this.tvEscola.SelectedImageIndex = 0;
-            this.tvEscola.Size = new System.Drawing.Size(416, 337);
+            this.tvEscola.Size = new System.Drawing.Size(553, 414);
             this.tvEscola.TabIndex = 0;
             // 
             // imageList1
@@ -77,10 +81,9 @@
             // 
             this.lblEscola.AutoSize = true;
             this.lblEscola.Font = new System.Drawing.Font("Courier New", 20F);
-            this.lblEscola.Location = new System.Drawing.Point(14, 5);
-            this.lblEscola.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEscola.Location = new System.Drawing.Point(19, 6);
             this.lblEscola.Name = "lblEscola";
-            this.lblEscola.Size = new System.Drawing.Size(109, 30);
+            this.lblEscola.Size = new System.Drawing.Size(137, 37);
             this.lblEscola.TabIndex = 5;
             this.lblEscola.Text = "Escola";
             // 
@@ -96,9 +99,11 @@
             this.grbAções.Controls.Add(this.btnAddDisciplina);
             this.grbAções.Controls.Add(this.btnAddTurma);
             this.grbAções.Controls.Add(this.btnAddAno);
-            this.grbAções.Location = new System.Drawing.Point(19, 52);
+            this.grbAções.Location = new System.Drawing.Point(25, 64);
+            this.grbAções.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grbAções.Name = "grbAções";
-            this.grbAções.Size = new System.Drawing.Size(212, 308);
+            this.grbAções.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grbAções.Size = new System.Drawing.Size(283, 379);
             this.grbAções.TabIndex = 6;
             this.grbAções.TabStop = false;
             this.grbAções.Text = "Ações";
@@ -107,9 +112,10 @@
             // 
             this.btnImportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnImportar.Font = new System.Drawing.Font("Courier New", 10.2F);
-            this.btnImportar.Location = new System.Drawing.Point(6, 279);
+            this.btnImportar.Location = new System.Drawing.Point(8, 343);
+            this.btnImportar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnImportar.Name = "btnImportar";
-            this.btnImportar.Size = new System.Drawing.Size(196, 23);
+            this.btnImportar.Size = new System.Drawing.Size(261, 28);
             this.btnImportar.TabIndex = 9;
             this.btnImportar.Text = "Importar";
             this.btnImportar.UseVisualStyleBackColor = false;
@@ -119,9 +125,10 @@
             // 
             this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnEditar.Font = new System.Drawing.Font("Courier New", 10.2F);
-            this.btnEditar.Location = new System.Drawing.Point(6, 223);
+            this.btnEditar.Location = new System.Drawing.Point(8, 274);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(196, 23);
+            this.btnEditar.Size = new System.Drawing.Size(261, 28);
             this.btnEditar.TabIndex = 8;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
@@ -131,9 +138,10 @@
             // 
             this.btnDadosProf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnDadosProf.Font = new System.Drawing.Font("Courier New", 10.2F);
-            this.btnDadosProf.Location = new System.Drawing.Point(6, 164);
+            this.btnDadosProf.Location = new System.Drawing.Point(8, 202);
+            this.btnDadosProf.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDadosProf.Name = "btnDadosProf";
-            this.btnDadosProf.Size = new System.Drawing.Size(196, 23);
+            this.btnDadosProf.Size = new System.Drawing.Size(261, 28);
             this.btnDadosProf.TabIndex = 7;
             this.btnDadosProf.Text = "Pedidos de Professores";
             this.btnDadosProf.UseVisualStyleBackColor = false;
@@ -143,9 +151,10 @@
             // 
             this.btnPedidosDados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnPedidosDados.Font = new System.Drawing.Font("Courier New", 10.2F);
-            this.btnPedidosDados.Location = new System.Drawing.Point(6, 193);
+            this.btnPedidosDados.Location = new System.Drawing.Point(8, 238);
+            this.btnPedidosDados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPedidosDados.Name = "btnPedidosDados";
-            this.btnPedidosDados.Size = new System.Drawing.Size(196, 23);
+            this.btnPedidosDados.Size = new System.Drawing.Size(261, 28);
             this.btnPedidosDados.TabIndex = 6;
             this.btnPedidosDados.Text = "Pedidos de Alunos";
             this.btnPedidosDados.UseVisualStyleBackColor = false;
@@ -155,9 +164,10 @@
             // 
             this.btnRemover.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnRemover.Font = new System.Drawing.Font("Courier New", 10.2F);
-            this.btnRemover.Location = new System.Drawing.Point(6, 250);
+            this.btnRemover.Location = new System.Drawing.Point(8, 308);
+            this.btnRemover.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRemover.Name = "btnRemover";
-            this.btnRemover.Size = new System.Drawing.Size(196, 23);
+            this.btnRemover.Size = new System.Drawing.Size(261, 28);
             this.btnRemover.TabIndex = 5;
             this.btnRemover.Text = "Remover";
             this.btnRemover.UseVisualStyleBackColor = false;
@@ -167,9 +177,10 @@
             // 
             this.btnAddAlunos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnAddAlunos.Font = new System.Drawing.Font("Courier New", 10.2F);
-            this.btnAddAlunos.Location = new System.Drawing.Point(6, 77);
+            this.btnAddAlunos.Location = new System.Drawing.Point(8, 95);
+            this.btnAddAlunos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddAlunos.Name = "btnAddAlunos";
-            this.btnAddAlunos.Size = new System.Drawing.Size(196, 23);
+            this.btnAddAlunos.Size = new System.Drawing.Size(261, 28);
             this.btnAddAlunos.TabIndex = 4;
             this.btnAddAlunos.Text = "Adicionar Aluno";
             this.btnAddAlunos.UseVisualStyleBackColor = false;
@@ -179,9 +190,10 @@
             // 
             this.btnAddProf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnAddProf.Font = new System.Drawing.Font("Courier New", 10.2F);
-            this.btnAddProf.Location = new System.Drawing.Point(6, 135);
+            this.btnAddProf.Location = new System.Drawing.Point(8, 166);
+            this.btnAddProf.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddProf.Name = "btnAddProf";
-            this.btnAddProf.Size = new System.Drawing.Size(196, 23);
+            this.btnAddProf.Size = new System.Drawing.Size(261, 28);
             this.btnAddProf.TabIndex = 3;
             this.btnAddProf.Text = "Adicionar Professor";
             this.btnAddProf.UseVisualStyleBackColor = false;
@@ -191,9 +203,10 @@
             // 
             this.btnAddDisciplina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnAddDisciplina.Font = new System.Drawing.Font("Courier New", 10.2F);
-            this.btnAddDisciplina.Location = new System.Drawing.Point(6, 106);
+            this.btnAddDisciplina.Location = new System.Drawing.Point(8, 130);
+            this.btnAddDisciplina.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddDisciplina.Name = "btnAddDisciplina";
-            this.btnAddDisciplina.Size = new System.Drawing.Size(196, 23);
+            this.btnAddDisciplina.Size = new System.Drawing.Size(261, 28);
             this.btnAddDisciplina.TabIndex = 2;
             this.btnAddDisciplina.Text = "Adicionar Disciplina";
             this.btnAddDisciplina.UseVisualStyleBackColor = false;
@@ -203,9 +216,10 @@
             // 
             this.btnAddTurma.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnAddTurma.Font = new System.Drawing.Font("Courier New", 10.2F);
-            this.btnAddTurma.Location = new System.Drawing.Point(6, 48);
+            this.btnAddTurma.Location = new System.Drawing.Point(8, 59);
+            this.btnAddTurma.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddTurma.Name = "btnAddTurma";
-            this.btnAddTurma.Size = new System.Drawing.Size(196, 23);
+            this.btnAddTurma.Size = new System.Drawing.Size(261, 28);
             this.btnAddTurma.TabIndex = 1;
             this.btnAddTurma.Text = "Adicionar Turma";
             this.btnAddTurma.UseVisualStyleBackColor = false;
@@ -215,9 +229,10 @@
             // 
             this.btnAddAno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnAddAno.Font = new System.Drawing.Font("Courier New", 10.2F);
-            this.btnAddAno.Location = new System.Drawing.Point(6, 19);
+            this.btnAddAno.Location = new System.Drawing.Point(8, 23);
+            this.btnAddAno.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddAno.Name = "btnAddAno";
-            this.btnAddAno.Size = new System.Drawing.Size(196, 23);
+            this.btnAddAno.Size = new System.Drawing.Size(261, 28);
             this.btnAddAno.TabIndex = 0;
             this.btnAddAno.Text = "Adicionar Ano";
             this.btnAddAno.UseVisualStyleBackColor = false;
@@ -227,9 +242,10 @@
             // 
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnBack.Font = new System.Drawing.Font("Courier New", 10.2F);
-            this.btnBack.Location = new System.Drawing.Point(25, 366);
+            this.btnBack.Location = new System.Drawing.Point(33, 450);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(196, 23);
+            this.btnBack.Size = new System.Drawing.Size(261, 28);
             this.btnBack.TabIndex = 5;
             this.btnBack.Text = "Voltar";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -238,36 +254,80 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.btnRelatorios);
+            this.panel1.Controls.Add(this.btnBackupLoad);
+            this.panel1.Controls.Add(this.btnBackup);
             this.panel1.Controls.Add(this.btnBack);
             this.panel1.Controls.Add(this.grbAções);
             this.panel1.Controls.Add(this.tvEscola);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.lblEscola);
-            this.panel1.Location = new System.Drawing.Point(57, 23);
+            this.panel1.Location = new System.Drawing.Point(76, 28);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(683, 407);
+            this.panel1.Size = new System.Drawing.Size(911, 501);
             this.panel1.TabIndex = 8;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::EscolaVirtual2322.Properties.Resources.update;
-            this.pictureBox1.Location = new System.Drawing.Point(614, 19);
+            this.pictureBox1.Location = new System.Drawing.Point(819, 23);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(41, 25);
+            this.pictureBox1.Size = new System.Drawing.Size(55, 31);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // btnBackup
+            // 
+            this.btnBackup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnBackup.Font = new System.Drawing.Font("Courier New", 10.2F);
+            this.btnBackup.Location = new System.Drawing.Point(319, 23);
+            this.btnBackup.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.Size = new System.Drawing.Size(115, 28);
+            this.btnBackup.TabIndex = 10;
+            this.btnBackup.Text = "Backup";
+            this.btnBackup.UseVisualStyleBackColor = false;
+            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
+            // 
+            // btnBackupLoad
+            // 
+            this.btnBackupLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnBackupLoad.Font = new System.Drawing.Font("Courier New", 10.2F);
+            this.btnBackupLoad.Location = new System.Drawing.Point(442, 23);
+            this.btnBackupLoad.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBackupLoad.Name = "btnBackupLoad";
+            this.btnBackupLoad.Size = new System.Drawing.Size(174, 28);
+            this.btnBackupLoad.TabIndex = 11;
+            this.btnBackupLoad.Text = "Carregar Backup";
+            this.btnBackupLoad.UseVisualStyleBackColor = false;
+            this.btnBackupLoad.Click += new System.EventHandler(this.btnBackupLoad_Click);
+            // 
+            // btnRelatorios
+            // 
+            this.btnRelatorios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnRelatorios.Font = new System.Drawing.Font("Courier New", 10.2F);
+            this.btnRelatorios.Location = new System.Drawing.Point(624, 23);
+            this.btnRelatorios.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRelatorios.Name = "btnRelatorios";
+            this.btnRelatorios.Size = new System.Drawing.Size(174, 28);
+            this.btnRelatorios.TabIndex = 12;
+            this.btnRelatorios.Text = "Relatorio";
+            this.btnRelatorios.UseVisualStyleBackColor = false;
+            this.btnRelatorios.Click += new System.EventHandler(this.btnRelatorios_Click);
+            // 
             // AdminForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(789, 442);
+            this.ClientSize = new System.Drawing.Size(1052, 544);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "AdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -300,5 +360,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnImportar;
+        private System.Windows.Forms.Button btnBackup;
+        private System.Windows.Forms.Button btnBackupLoad;
+        private System.Windows.Forms.Button btnRelatorios;
     }
 }

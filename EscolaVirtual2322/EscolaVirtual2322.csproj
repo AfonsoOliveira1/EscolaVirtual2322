@@ -173,6 +173,8 @@
     </Compile>
     <Compile Include="Classes\Notas.cs" />
     <Compile Include="Classes\Relatorio.cs" />
+    <Compile Include="Dados\BackupXML.cs" />
+    <Compile Include="Dados\LogsNotasJSON.cs" />
     <Compile Include="Dados\UsersJSON.cs" />
     <Compile Include="ProfFormsAdicionais\AlterarDadosProf.cs">
       <SubType>Form</SubType>
@@ -302,6 +304,7 @@
     <EmbeddedResource Include="AlunosFormsAdicionais\SaldoForm.resx">
       <DependentUpon>SaldoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Dados\logsNotas.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
