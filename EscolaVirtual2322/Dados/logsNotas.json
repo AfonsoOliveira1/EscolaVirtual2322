@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "nome": "JC",
+    "aluno": "Miguel",
+    "disciplina": "EF",
+    "valorAntigo": "Sem Nota",
+    "valorNovo": "12",
+    "dataAlteracao": "2025-11-20T16:01:01.7237993+00:00"
+  },
+  {
+    "nome": "JC",
+    "aluno": "Afonso",
+    "disciplina": "EF",
+    "valorAntigo": "Sem Nota",
+    "valorNovo": "12",
+    "dataAlteracao": "2025-11-20T16:01:03.5075448+00:00"
+  },
+  {
+    "nome": "JC",
+    "aluno": "Miguel",
+    "disciplina": "EF",
+    "valorAntigo": "Sem Nota",
+    "valorNovo": "12",
+    "dataAlteracao": "2025-11-24T13:35:48.5199429+00:00"
+  },
+  {
+    "nome": "JC",
+    "aluno": "Miguel",
+    "disciplina": "EF",
+    "valorAntigo": "12",
+    "valorNovo": "12",
+    "dataAlteracao": "2025-11-24T13:36:18.9420514+00:00"
+  },
+  {
+    "nome": "JC",
+    "aluno": "Miguel",
+    "disciplina": "EF",
+    "valorAntigo": "Sem Nota",
+    "valorNovo": "12",
+    "dataAlteracao": "2025-11-24T13:37:19.6356918+00:00"
+  },
+  {
+    "nome": "JC",
+    "aluno": "Afonso",
+    "disciplina": "EF",
+    "valorAntigo": "Sem Nota",
+    "valorNovo": "13",
+    "dataAlteracao": "2025-11-24T13:37:23.0127118+00:00"
+  }
+]

@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
-
+using System.Xml;              
+using System.Xml.Linq;
 
 namespace EscolaVirtual2322.Classes
 {
@@ -84,10 +84,43 @@ namespace EscolaVirtual2322.Classes
         }
         public static void ExportarRelatorioXML(Relatorio relatorio, string caminho)
         {
-            var xmlSerializer = new XmlSerializer(typeof(Relatorio));
-            using (var writer = new StreamWriter(caminho))
+            // Configurações do XML (indentação, formatação)
+            XmlWriterSettings xmlSettings = new XmlWriterSettings
             {
-                xmlSerializer.Serialize(writer, relatorio);
+                Indent = true,
+                IndentChars = "   "
+            };
+
+            // Cria o arquivo XML com as configurações acima
+            using (XmlWriter xmlOut = XmlWriter.Create(caminho, xmlSettings))
+            {
+                xmlOut.WriteStartDocument();                    // Início do documento XML
+                xmlOut.WriteComment("Relatório da turma");      // Comentário opcional
+
+                xmlOut.WriteStartElement("Relatorio");          // Elemento raiz
+
+                // Escrita de elementos simples
+                xmlOut.WriteElementString("Professor", relatorio.Professor);
+                xmlOut.WriteElementString("Turma", relatorio.Turma);
+                xmlOut.WriteElementString("Disciplina", relatorio.Disciplina);
+                xmlOut.WriteElementString("MediaTurma", relatorio.MediaTurma.ToString());
+                xmlOut.WriteElementString("MelhorAluno", relatorio.MelhorAluno);
+                xmlOut.WriteElementString("PiorAluno", relatorio.PiorAluno);
+
+                xmlOut.WriteStartElement("ListaAlunos");        // Lista de alunos
+
+                // Escreve cada aluno como elemento XML
+                foreach (var aluno in relatorio.ListaAlunos)
+                {
+                    xmlOut.WriteStartElement("Aluno");
+                    xmlOut.WriteElementString("Nome", aluno.Aluno);
+                    xmlOut.WriteElementString("Nota", aluno.Nota.ToString());
+                    xmlOut.WriteEndElement();
+                }
+
+                xmlOut.WriteEndElement();   // ListaAlunos
+                xmlOut.WriteEndElement();   // Relatorio
+                xmlOut.WriteEndDocument();  // Final do XML
             }
         }
         public static Relatorio ImportarRelatorioJSON(string caminho)
@@ -98,11 +131,30 @@ namespace EscolaVirtual2322.Classes
 
         public static Relatorio ImportarRelatorioXML(string caminho)
         {
-            var xmlSerializer = new XmlSerializer(typeof(Relatorio));
-            using (var reader = new StreamReader(caminho))
+            XDocument doc = XDocument.Load(caminho);   // Carrega o XML inteiro para memória
+
+            var rel = new Relatorio
             {
-                return (Relatorio)xmlSerializer.Deserialize(reader);
-            }
+                // Lê elementos simples do XML
+                Professor = (string)doc.Root.Element("Professor") ?? "",
+                Turma = (string)doc.Root.Element("Turma") ?? "",
+                Disciplina = (string)doc.Root.Element("Disciplina") ?? "",
+                MediaTurma = Convert.ToDouble((string)doc.Root.Element("MediaTurma") ?? "0"),
+                MelhorAluno = (string)doc.Root.Element("MelhorAluno") ?? "",
+                PiorAluno = (string)doc.Root.Element("PiorAluno") ?? "",
+
+                // Converte cada <Aluno> numa lista de objetos
+                ListaAlunos = doc.Root.Element("ListaAlunos")
+                    .Elements("Aluno")
+                    .Select(a => new Relatorio.AlunoNota
+                    {
+                        Aluno = (string)a.Element("Nome") ?? "",
+                        Nota = Convert.ToDouble((string)a.Element("Nota") ?? "0")
+                    })
+                    .ToList()
+            };
+
+            return rel;
         }
 
         public static void GerarRelatorioAlunos(Alunos aluno, string caminho)
