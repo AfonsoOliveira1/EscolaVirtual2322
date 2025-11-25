@@ -46,5 +46,29 @@
     "valorAntigo": "Sem Nota",
     "valorNovo": "13",
     "dataAlteracao": "2025-11-24T13:37:23.0127118+00:00"
+  },
+  {
+    "nome": "JC",
+    "aluno": "Miguel",
+    "disciplina": "EF",
+    "valorAntigo": "Sem Nota",
+    "valorNovo": "12",
+    "dataAlteracao": "2025-11-25T15:04:26.7265411+00:00"
+  },
+  {
+    "nome": "JC",
+    "aluno": "Miguel",
+    "disciplina": "EF",
+    "valorAntigo": "Sem Nota",
+    "valorNovo": "12",
+    "dataAlteracao": "2025-11-25T15:15:33.4038938+00:00"
+  },
+  {
+    "nome": "JC",
+    "aluno": "Afonso",
+    "disciplina": "EF",
+    "valorAntigo": "Sem Nota",
+    "valorNovo": "13",
+    "dataAlteracao": "2025-11-25T15:15:37.6232307+00:00"
   }
 ]

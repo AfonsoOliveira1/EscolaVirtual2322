@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml;              
 using System.Xml.Linq;
 
@@ -38,44 +39,58 @@ namespace EscolaVirtual2322.Classes
                  .ToList();
 
                 double mediaTurma = notas.Any() ? notas.Average() : 0.0;//se nao houver notas, media 0
-
-                foreach (var aluno in turma.listAlunos)
+                try
                 {
-                    var notaCheck = aluno.notas.FirstOrDefault(n => n.disc == disciplina.sigla);
-                    if(notaCheck == null) 
-                        throw new Exception($"Este aluno {aluno.nome} nao tem nota na disciplina de {disciplina.sigla}"); //pula alunos sem nota na disciplina
+                    foreach (var aluno in turma.listAlunos)
+                    {
+                        var notaCheck = aluno.notas.FirstOrDefault(n => n.disc == disciplina.sigla);
+                        if (notaCheck == null)
+                            throw new Exception($"Este aluno {aluno.nome} nao tem nota na disciplina de {disciplina.sigla}"); //pula alunos sem nota na disciplina
 
-                    var nota = aluno.notas.Where(n => n.disc == disciplina.sigla).Select(c => c.classi).First();
-                    listaAlunosNotas.Add(new AlunoNota { Aluno = aluno.nome, Nota = nota});
+                        var nota = aluno.notas.Where(n => n.disc == disciplina.sigla).Select(c => c.classi).First();
+                        listaAlunosNotas.Add(new AlunoNota { Aluno = aluno.nome, Nota = nota });
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Este Aluno: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            if(listaAlunosNotas.Count == 0)
-                throw new Exception($"Não há notas registradas para a turma {turma.nome} nas disciplinas lecionadas pelo professor {professor.nome}.");
-
-            var mediasPorAluno = listaAlunosNotas
-                .GroupBy(an => an.Aluno)
-                .Select(g => new
-                {
-                    Aluno = g.Key,
-                    Media = g.Average(an => an.Nota)
-                })
-                .ToList();
-            var maxMedia = mediasPorAluno.Max(a => a.Media);
-            var melhores = mediasPorAluno.Where(a => a.Media == maxMedia).Select(a => a.Aluno).ToList();
-
-            var minMedia = mediasPorAluno.Min(a => a.Media);
-            var piores = mediasPorAluno.Where(x => x.Media == minMedia).Select(a => a.Aluno).ToList();
-            var re = new Relatorio
+            try
             {
-                Professor = professor.nome,
-                Turma = turma.nome,
-                Disciplina = string.Join(", ", disciplinas.Select(d => d.sigla)),
-                MediaTurma = Math.Round(listaAlunosNotas.Average(x => x.Nota), 2),
-                MelhorAluno = string.Join(", ", melhores),
-                PiorAluno = string.Join(", ", piores),
-                ListaAlunos = listaAlunosNotas
-            };
-            return re;
+                if (listaAlunosNotas.Count == 0)
+                    throw new Exception($"Não há notas registradas para a turma {turma.nome} nas disciplinas lecionadas pelo professor {professor.nome}.");
+
+                var mediasPorAluno = listaAlunosNotas
+                    .GroupBy(an => an.Aluno)
+                    .Select(g => new
+                    {
+                        Aluno = g.Key,
+                        Media = g.Average(an => an.Nota)
+                    })
+                    .ToList();
+                var maxMedia = mediasPorAluno.Max(a => a.Media);
+                var melhores = mediasPorAluno.Where(a => a.Media == maxMedia).Select(a => a.Aluno).ToList();
+
+                var minMedia = mediasPorAluno.Min(a => a.Media);
+                var piores = mediasPorAluno.Where(x => x.Media == minMedia).Select(a => a.Aluno).ToList();
+                var re = new Relatorio
+                {
+                    Professor = professor.nome,
+                    Turma = turma.nome,
+                    Disciplina = string.Join(", ", disciplinas.Select(d => d.sigla)),
+                    MediaTurma = Math.Round(listaAlunosNotas.Average(x => x.Nota), 2),
+                    MelhorAluno = string.Join(", ", melhores),
+                    PiorAluno = string.Join(", ", piores),
+                    ListaAlunos = listaAlunosNotas
+                };
+                return re;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
         }
         public static void ExportarRelatorioJSON(Relatorio relatorio, string caminho)
         {

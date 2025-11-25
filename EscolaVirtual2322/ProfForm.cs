@@ -5,6 +5,7 @@ using System;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
@@ -258,6 +259,8 @@ namespace EscolaVirtual2322
                     if(turma != null && prof != null)
                     {
                         Relatorio relatorioTurma = Relatorio.GerarRelatorio(turma, prof);
+                        if (relatorioTurma == null)
+                            break;
                         MessageBox.Show("Queres em JSON?", "Relatorio", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if(DialogResult.Yes == DialogResult)
                         {
